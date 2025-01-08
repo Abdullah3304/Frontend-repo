@@ -1,0 +1,171 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    margin-top: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f3f0;
+  color: #4d3a35;
+}
+
+/* Header Styling */
+header {
+  margin:0;
+  padding:0;
+  background-color: #8b5e3c;
+  color: white;
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li a {
+  margin:0;
+  padding:0;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+header nav ul li a:hover {
+  background-color: #a47550;
+  border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero .btn:hover {
+  background: #0056b3;
+}
+
+/* Categories Section */
+.categories {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.category-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  width: 150px;
+  text-align: center;
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Featured Products Section */
+.featured-products {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+}
+
+.product-card p {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.product-card .btn {
+  padding: 5px 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card .btn:hover {
+  background: #218838;
+}
+
+/* Footer */
+.footer {
+  background: #8b5e3c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer .social-media a {
+  color: white;
+  margin: 0 10px;
+}
+
+.footer .social-media a:hover {
+  color: #5fcaff;
+}

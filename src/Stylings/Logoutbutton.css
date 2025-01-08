@@ -1,0 +1,18 @@
+.logout-btn {
+    position: fixed;   /* Fixed position */
+    top: 12px;         /* Adjust as needed */
+    right: 20px;       /* Adjust as needed */
+    background-color: #f44336;  /* Red background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;     /* Ensure it stays on top of other content */
+  }
+  
+  .logout-btn:hover {
+    background-color: #d32f2f;  /* Darker red on hover */
+  }
+  

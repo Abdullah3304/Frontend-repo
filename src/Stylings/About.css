@@ -1,0 +1,163 @@
+/* General Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f3f0;
+    color: #4d3a35;
+}
+
+/* Header Styling */
+header {
+    background-color: #8b5e3c;
+    color: white;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+header nav ul li a:hover {
+    background-color: #a47550;
+    border-radius: 5px;
+}
+
+/* Hero Section Styling */
+.about-hero {
+    background: linear-gradient(135deg, #8b5e3c, #d7a87b);
+    color: white;
+    padding: 4em 5%;
+    text-align: center;
+}
+
+.about-hero h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.about-hero p {
+    color:white;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+/* Mission Section Styling */
+.mission {
+    padding: 4em 5%;
+    text-align: center;
+    background-color: #f0e4db;
+    color: #4d3a35;
+}
+
+.mission h2 {
+    font-size: 2em;
+    color: #8b5e3c;
+    margin-bottom: 0.5em;
+}
+
+/* Team Section Styling */
+.team {
+    padding: 4em 5%;
+    text-align: center;
+}
+
+.team h2 {
+    font-size: 2em;
+    color: #8b5e3c;
+    margin-bottom: 1em;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1em;
+}
+
+.team-member h3 {
+    color: #4d3a35;
+    margin: 0.5em 0;
+}
+
+.team-member p {
+    color: #8b5e3c;
+}
+
+/* CTA Section Styling */
+.cta {
+    background-color: #8b5e3c;
+    color: white;
+    padding: 3em 5%;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.cta p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.cta .btn {
+    background-color: white;
+    color: #8b5e3c;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cta .btn:hover {
+    background-color: #f0e4db;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #8b5e3c;
+    color: white;
+    padding: 1em 5%;
+    text-align: center;
+    font-size: 0.9em;
+}

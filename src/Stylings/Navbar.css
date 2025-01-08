@@ -1,0 +1,106 @@
+/* General Navbar Styling */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Ensure space between elements */
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+}
+
+.navbar .logo {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+/* Centering the nav-links */
+.navbar .nav-links {
+    align-items: center;
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+    width: 100%;  /* Ensure it takes the full width */
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #f39c12;
+}
+
+/* Centering the Search Bar and Logout Button */
+.navbar .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Add margin for spacing */
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    background-color: #f39c12;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-bar button:hover {
+    background-color: #e67e22;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        margin-top: 10px;
+        justify-content: center; /* Center nav links vertically */
+    }
+
+    .navbar .nav-links li {
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        margin-top: 10px;
+    }
+
+    .center-content {
+        width: 100%;
+        justify-content: space-between; /* Ensure search bar and logout button are spaced out */
+    }
+}
