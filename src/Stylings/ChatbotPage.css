@@ -1,0 +1,26 @@
+.chatbot-container {
+  text-align: center;
+  padding: 2rem;
+  min-height: 80vh;
+  background-color: #f9f9f9;
+}
+
+.chatbot-container h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.chatbot-container p {
+  margin-bottom: 2rem;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.chat-widget-box {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  min-height: 500px;
+}

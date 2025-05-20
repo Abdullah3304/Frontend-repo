@@ -1,10 +1,12 @@
 import React from 'react';
+import '../Stylings/ProductCard.css';
 
 const ProductCard = ({ product }) => {
+  console.log("<<<<<<<<<productCard", product)
   return (
     <div className="product-card">
       <img
-        src={`http://localhost:5000${product.image}`}
+        src={`http://localhost:5000/${product.image}`}
         alt={product.name}
         className="product-image"
       />

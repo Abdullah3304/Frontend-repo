@@ -1,15 +1,9 @@
-/* General Reset and Body Styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+
 
 body {
-    background-color: #f8f3f0;
-    color: #4d3a35;
-}
+    background-color: #1a1a1a; /* Darker background */
+    color: #e0e0e0; /* Light text color */
+  }
 
 /* Header Styling */
 header {
@@ -45,20 +39,20 @@ header nav ul li a:hover {
 
 /* Hero Section Styling */
 .about-hero {
-    background: linear-gradient(135deg, #8b5e3c, #d7a87b);
+    background: linear-gradient(135deg, #333, #555);
     color: white;
     padding: 4em 5%;
     text-align: center;
 }
 
 .about-hero h1 {
-    color: white;
+    
     font-size: 2.5em;
     margin-bottom: 0.5em;
 }
 
 .about-hero p {
-    color:white;
+    
     font-size: 1.2em;
     margin-bottom: 1em;
 }
@@ -67,16 +61,44 @@ header nav ul li a:hover {
 .mission {
     padding: 4em 5%;
     text-align: center;
-    background-color: #f0e4db;
-    color: #4d3a35;
+    background-color: #222;
+    color: #e0e0e0;
 }
 
 .mission h2 {
     font-size: 2em;
-    color: #8b5e3c;
+    color: #ffcc00;
     margin-bottom: 0.5em;
 }
 
+/* What We Offer Section Styling */
+.offer {
+    padding: 4em 5%;
+    text-align: center;
+    background-color: #333; /* Darker background */
+    color: #e0e0e0;
+  }
+
+  .offer h2 {
+    font-size: 2em;
+    color: #ffcc00; /* Yellow color for headers */
+    margin-bottom: 0.5em;
+  }
+
+  /* Our Values Section Styling */
+.values {
+    padding: 4em 5%;
+    text-align: center;
+    background-color: #222; /* Darker background */
+    color: #e0e0e0;
+  }
+  
+  .values h2 {
+    font-size: 2em;
+    color: #ffcc00; /* Yellow color for headers */
+    margin-bottom: 0.5em;
+  }
+  
 /* Team Section Styling */
 .team {
     padding: 4em 5%;
@@ -85,7 +107,7 @@ header nav ul li a:hover {
 
 .team h2 {
     font-size: 2em;
-    color: #8b5e3c;
+    color: #ffcc00;
     margin-bottom: 1em;
 }
 
@@ -97,8 +119,8 @@ header nav ul li a:hover {
 }
 
 .team-member {
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: #333;
+    border: 1px solid #555;
     border-radius: 5px;
     padding: 1em;
     width: 200px;
@@ -114,17 +136,15 @@ header nav ul li a:hover {
 }
 
 .team-member h3 {
-    color: #4d3a35;
+    color: #ffcc00;
     margin: 0.5em 0;
 }
 
-.team-member p {
-    color: #8b5e3c;
-}
+
 
 /* CTA Section Styling */
 .cta {
-    background-color: #8b5e3c;
+    background-color: #222;
     color: white;
     padding: 3em 5%;
     text-align: center;
@@ -141,8 +161,8 @@ header nav ul li a:hover {
 }
 
 .cta .btn {
-    background-color: white;
-    color: #8b5e3c;
+    background-color: #ffcc00;
+    color: #000000;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -150,14 +170,22 @@ header nav ul li a:hover {
 }
 
 .cta .btn:hover {
-    background-color: #f0e4db;
+    background-color: #e6b800;
 }
 
 /* Footer Styling */
 footer {
-    background-color: #8b5e3c;
+    background-color: #222;
     color: white;
     padding: 1em 5%;
     text-align: center;
     font-size: 0.9em;
 }
+.footer .social-media a {
+    color: white;
+    margin: 0 10px;
+  }
+  
+  .footer .social-media a:hover {
+    color: #ffcc00; /* Hover effect for social links */
+  }

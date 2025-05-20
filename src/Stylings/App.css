@@ -1,3 +1,5 @@
+
+
 * {
   margin: 0;
   padding: 0;
@@ -7,80 +9,18 @@
 
 body {
   background-color: #f8f3f0;
-  color: #4d3a35;
+  color: #000000;
 }
 
-header {
-  background-color: #8b5e3c;
-  color: white;
-  padding: 10px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-header .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
 
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
 
-header nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-}
 
-header nav ul li a:hover {
-  background-color: #a47550;
-  border-radius: 5px;
-}
 
-.hero {
-  background: linear-gradient(135deg, #8b5e3c, #d7a87b);
-  color: white;
-  padding: 5em 5%;
-  text-align: center;
-}
 
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
 
-.hero p {
-  font-size: 1.2em;
-  margin-bottom: 1em;
-}
 
-.hero .btn {
-  background-color: white;
-  color: #8b5e3c;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
 
-.hero .btn:hover {
-  background-color: #f0e4db;
-}
-
-.products {
-  padding: 4em 5%;
-  text-align: center;
-}
-
-.products h2 {
-  font-size: 2em;
-  color: #8b5e3c;
-  margin-bottom: 1em;
-}
 
 .product-grid {
   display: flex;
@@ -89,59 +29,19 @@ header nav ul li a:hover {
   justify-content: center;
 }
 
-.product-card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 1em;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
 
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
 
-.product-card h3 {
-  color: #4d3a35;
-  margin: 0.5em 0;
-}
 
-.product-card p {
-  font-size: 1.2em;
-  color: #8b5e3c;
-}
 
-.product-card .btn {
-  background-color: #8b5e3c;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-.product-card .btn:hover {
-  background-color: #a47550;
-}
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
 
-footer {
-  background-color: #8b5e3c;
-  color: white;
-  padding: 1em 5%;
-  text-align: center;
-}
+
+
+
 .logo {
   text-decoration: none;
   font-size: 24px;
   font-weight: bold;
-  color: #fff; /* or your desired color */
-}
+  color: #fff;} /* or your desired color */
+

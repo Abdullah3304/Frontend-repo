@@ -1,0 +1,90 @@
+/* Video Tutorials Page Styling */
+.video-tutorials {
+    padding: 40px;
+    background-color: rgba(30, 30, 30, 0.9); /* Darker background */
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .video-tutorials h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Video List */
+  .video-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+    text-align: center;
+  }
+  
+  /* Video Card */
+  .video-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 300px;
+    margin-right: 20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .video-card:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .video-card h2, .video-card p {
+    z-index: 2;
+    position: relative;
+  }
+  
+  .video-card p:last-of-type {
+    color: #3C3CE8;
+    font-weight: bold;
+  }
+  
+
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 2rem;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .arrow-left {
+    left: 20px;
+  }
+  
+  .arrow-right {
+    right: 20px;
+  }
+  
+  .arrow:hover {
+    font-weight: bold;
+  }
+  
+  .video-tutorials:hover .arrow {
+    opacity: 1;
+  }
+  

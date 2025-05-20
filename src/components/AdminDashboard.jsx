@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../Stylings/Admin.css'; // Link to your CSS file
+import '../Stylings/Admin.css';
 
 const AdminDashboard = () => {
   const [product, setProduct] = useState({
@@ -12,7 +12,7 @@ const AdminDashboard = () => {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isEditing, setIsEditing] = useState(false); // For update functionality
+  const [isEditing, setIsEditing] = useState(false);
   const [editingProductId, setEditingProductId] = useState(null);
 
   useEffect(() => {
@@ -20,9 +20,9 @@ const AdminDashboard = () => {
       try {
         const response = await axios.get('http://localhost:5000/api/products');
         setProducts(response.data);
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching products:', error);
+      } finally {
         setLoading(false);
       }
     };
@@ -32,45 +32,69 @@ const AdminDashboard = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setProduct((prevProduct) => ({
-      ...prevProduct,
-      [name]: value,
-    }));
+    setProduct((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleImageChange = (e) => {
-    setProduct((prevProduct) => ({
-      ...prevProduct,
-      image: e.target.files[0],
-    }));
+    setProduct((prev) => ({ ...prev, image: e.target.files[0] }));
   };
 
-  const handleAddProduct = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
+    const token = localStorage.getItem('token');
     formData.append('name', product.name);
     formData.append('description', product.description);
     formData.append('price', product.price);
-    if (product.image) {
+    if (product.image && product.image instanceof File) {
       formData.append('image', product.image);
     }
 
+    const endpoint = isEditing
+      ? `http://localhost:5000/api/products/${editingProductId}`
+      : 'http://localhost:5000/api/products';
+
+    const method = isEditing ? axios.put : axios.post;
+
     try {
-      const response = await axios.post('http://localhost:5000/api/products', formData, {
+      const response = await method(endpoint, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
 
-      alert('Product added successfully');
-      setProducts((prevProducts) => [...prevProducts, response.data.product]);
-      setProduct({ name: '', description: '', price: '', image: null }); // Reset form
+      const updatedProduct = response.data.product;
+
+      if (isEditing) {
+        setProducts((prev) =>
+          prev.map((p) => (p._id === editingProductId ? updatedProduct : p))
+        );
+        alert('Product updated successfully');
+      } else {
+        setProducts((prev) => [...prev, updatedProduct]);
+        alert('Product added successfully');
+      }
+
+      setProduct({ name: '', description: '', price: '', image: null });
+      setIsEditing(false);
+      setEditingProductId(null);
     } catch (error) {
-      console.error(error);
-      alert('Failed to add product');
+      console.error('Failed to submit product:', error);
+      alert('There was an error saving the product.');
     }
+  };
+
+  const handleEditProduct = (prod) => {
+    setIsEditing(true);
+    setEditingProductId(prod._id);
+    setProduct({
+      name: prod.name,
+      description: prod.description,
+      price: prod.price,
+      image: null, // Keep this null unless a new image is selected
+    });
   };
 
   const handleDeleteProduct = async (productId) => {
@@ -80,63 +104,27 @@ const AdminDashboard = () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+      setProducts((prev) => prev.filter((p) => p._id !== productId));
       alert('Product deleted successfully');
     } catch (error) {
       console.error('Error deleting product:', error);
       alert('Failed to delete product');
     }
   };
-
-  const handleEditProduct = (product) => {
-    setIsEditing(true);
-    setEditingProductId(product._id);
-    setProduct({
-      name: product.name,
-      description: product.description,
-      price: product.price,
-      image: null, // Leave the image field empty initially for updates
-    });
-  };
-
-  const handleUpdateProduct = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('name', product.name);
-    formData.append('description', product.description);
-    formData.append('price', product.price);
-    if (product.image) {
-      formData.append('image', product.image);
-    }
-
-    try {
-      const response = await axios.put(`http://localhost:5000/api/products/${editingProductId}`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-
-      alert('Product updated successfully');
-      setProducts((prevProducts) =>
-        prevProducts.map((p) => (p._id === editingProductId ? response.data.product : p))
-      );
-      setIsEditing(false);
-      setProduct({ name: '', description: '', price: '', image: null }); // Reset form
-    } catch (error) {
-      console.error('Error updating product:', error);
-      alert('Failed to update product');
-    }
-  };
+  //------adding this so i dont face problem like when i register it dosent because it says it is unauthorize but when i logout and login it work so to prevent it we are using this
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('Please log in as admin first.');
+    return;
+  }
 
   return (
     <div className="admin-dashboard">
       <h2>{isEditing ? 'Edit Product' : 'Add New Product'}</h2>
-      <form className="product-form" onSubmit={isEditing ? handleUpdateProduct : handleAddProduct}>
-        <label htmlFor="name">Title</label>
+
+      <form className="product-form" onSubmit={handleSubmit}>
+        <label>Title</label>
         <input
-          id="name"
           type="text"
           name="name"
           value={product.name}
@@ -144,20 +132,18 @@ const AdminDashboard = () => {
           placeholder="Product Name"
           required
         />
-        
-        <label htmlFor="description">Description</label>
+
+        <label>Description</label>
         <textarea
-          id="description"
           name="description"
           value={product.description}
           onChange={handleInputChange}
           placeholder="Product Description"
           required
-        ></textarea>
-        
-        <label htmlFor="price">Price</label>
+        />
+
+        <label>Price</label>
         <input
-          id="price"
           type="number"
           name="price"
           value={product.price}
@@ -165,21 +151,27 @@ const AdminDashboard = () => {
           placeholder="Product Price"
           required
         />
-        
-        <label htmlFor="image">Upload Image</label>
+
+        <label>Upload Image</label>
         <input
-          id="image"
           type="file"
           name="image"
           accept="image/*"
           onChange={handleImageChange}
         />
-        
+
         <button type="submit" className="submit-btn">
           {isEditing ? 'Update Product' : 'Add Product'}
         </button>
         {isEditing && (
-          <button className="cancel-btn" onClick={() => setIsEditing(false)}>
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() => {
+              setIsEditing(false);
+              setProduct({ name: '', description: '', price: '', image: null });
+            }}
+          >
             Cancel
           </button>
         )}
@@ -190,17 +182,23 @@ const AdminDashboard = () => {
         <p>Loading products...</p>
       ) : (
         <ul className="product-list">
-          {products && products.length > 0 ? (
-            products.map((product) => (
-              <li key={product._id} className="product-item">
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>${product.price}</p>
-                <img src={`http://localhost:5000/uploads/${product.image}`} alt={product.name} />
-                <button onClick={() => handleEditProduct(product)} className="edit-btn">
+          {products.length > 0 ? (
+            products.map((p) => (
+              <li key={p._id} className="product-item">
+                <h3>{p.name}</h3>
+                <p>{p.description}</p>
+                <p>${p.price}</p>
+                {p.image && (
+                  <img
+                    src={`http://localhost:5000/${product.image}`}
+                    alt={product.name}
+                    className="trainer-image"
+                  />
+                )}
+                <button onClick={() => handleEditProduct(p)} className="edit-btn">
                   Edit
                 </button>
-                <button onClick={() => handleDeleteProduct(product._id)} className="delete-btn">
+                <button onClick={() => handleDeleteProduct(p._id)} className="delete-btn">
                   Delete
                 </button>
               </li>

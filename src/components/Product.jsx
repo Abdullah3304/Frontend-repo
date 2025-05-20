@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../Stylings/Products.css';
+import shopImage from '../assets/shop.png';
+import cartIcon from '../assets/cart.png'; // Import the cart icon
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -8,7 +11,9 @@ function Products() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [priceRange, setPriceRange] = useState(1000);
+  const cardsPerPage = 6;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -20,20 +25,23 @@ function Products() {
         console.error('Error fetching products:', error);
       }
     };
-
     fetchProducts();
   }, []);
 
   useEffect(() => {
+    let results = products;
+
     if (searchQuery) {
-      const results = products.filter((product) =>
+      results = results.filter((product) =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setFilteredProducts(results);
-    } else {
-      setFilteredProducts(products);
     }
-  }, [searchQuery, products]);
+
+    results = results.filter((product) => product.price <= priceRange);
+
+    setFilteredProducts(results);
+    setCurrentPage(1); // Reset to first page on new filter
+  }, [searchQuery, priceRange, products]);
 
   const handleAddToCart = (product) => {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -46,8 +54,16 @@ function Products() {
 
     setAlertMessage(`${product.name} has been added to the cart!`);
     setShowPopup(true);
-
     setTimeout(() => setShowPopup(false), 5000);
+  };
+
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = products.slice(indexOfFirstCard, indexOfLastCard);
+  const totalPages = Math.ceil(filteredProducts.length / cardsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   return (
@@ -59,63 +75,83 @@ function Products() {
       )}
 
       <section className="hero">
-        <h1>Discover Our Products</h1>
-        <p>Find high-quality items to suit your lifestyle</p>
-
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-bar"
-          />
-        </div>
-
-        <div className="product-list">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <div key={product._id} className="product-card">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                />
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p className="price">
-          <strong>Price: </strong> 
-          <span>${product.price}</span>
-        </p>
-                <button className="btn" onClick={() => handleAddToCart(product)}>
-                  Add to Cart
-                </button>
-
-              </div>
-            ))
-          ) : (
-            <p>No products found.</p>
-          )}
+        <div className="hero-image-container">
+          <img src={shopImage} alt="Shop" className="hero-shop-image" />
         </div>
       </section>
 
-      <footer>
-       
-        <p>&copy; 2024 ShopMate. All Rights Reserved.</p>
-        
-        <div className="social-media">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            Facebook
-          </a>{' '}
-          |{' '}
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            Twitter
-          </a>{' '}
-          |{' '}
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            Instagram
-          </a>
+      <div className="content-layout">
+        {/* ✅ Filter Sidebar */}
+        <aside className="filter-container">
+          <h3>Filter Products</h3>
+
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="search-bar"
+            />
+          </div>
+
+          <p>Price Range: Up to ${priceRange}</p>
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            value={priceRange}
+            onChange={(e) => setPriceRange(Number(e.target.value))}
+          />
+        </aside>
+
+        <div className="product-list-section">
+          {/* Cart Icon */}
+          <Link to="/cart" className="cart-icon-link">
+            <img src={cartIcon} alt="Cart" className="cart-icon" />
+          </Link>
+
+          <div className="product-list">
+            {currentCards.length > 0 ? (
+              currentCards.map((product) => (
+                <div key={product._id} className="product-card">
+                  <img
+                    src={`http://localhost:5000/${product.image}`}
+                    alt={product.name}
+                    className="trainer-image"
+                  />
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <p className="price">
+                    <strong>Price: </strong>
+                    <span>${product.price}</span>
+                  </p>
+                  <button className="btn" onClick={() => handleAddToCart(product)}>
+                    Add to Cart
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p>No products found.</p>
+            )}
+          </div>
+
+          {/* ✅ Pagination */}
+          {totalPages > 1 && (
+            <div className="pagination">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? 'active' : ''}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-      </footer>
+      </div>
     </div>
   );
 }

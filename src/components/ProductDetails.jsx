@@ -23,13 +23,13 @@ const ProductDetails = () => {
   if (!product) {
     return <div>Loading...</div>;
   }
-
+  console.log("<<<<<<<<<DETAILS PAGE", product)
   return (
     <div>
       <h1>{product.name}</h1>
       <p>{product.description}</p>
       <p>Price: ${product.price}</p>
-      <img src={`http://localhost:5000/uploads/${product.image}`} alt={product.name} />
+      <img src={`http://localhost:5000/${product.image}`} alt={product.name} />
 
       {/* You can display the product details in a card format too */}
       <div>

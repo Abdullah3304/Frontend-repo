@@ -1,0 +1,47 @@
+/* Container for all product cards */
+.product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Outer card */
+.product-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image (left side) */
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-right: 20px;
+  flex: 1 1;
+  padding-right: 30px;
+}
+
+/* Product info (right side) */
+.product-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.product-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #444;
+}

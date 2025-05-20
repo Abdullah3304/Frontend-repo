@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Stylings/Logoutbutton.css'; // Import CSS for styling
+import { FaSignOutAlt } from 'react-icons/fa';  // Import Logout icon from react-icons
 
 const LogoutButton = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const LogoutButton = ({ setIsLoggedIn }) => {
 
   return (
     <button onClick={handleLogout} className="logout-btn">
-      Logout
+      <FaSignOutAlt /> {/* Only the Logout icon is displayed */}
     </button>
   );
 };

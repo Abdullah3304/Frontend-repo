@@ -9,7 +9,7 @@ const Contact = () => {
       {/* Contact Hero Section */}
       <section className="contact-hero">
         <h1>Contact Us</h1>
-        <p>We’d love to hear from you! Reach out with any questions or feedback.</p>
+        <p>We would love to hear from you! Reach out with any questions or feedback.</p>
       </section>
 
       {/* Contact Form Section */}
@@ -35,7 +35,7 @@ const Contact = () => {
       <section className="contact-info">
         <h2>Our Information</h2>
         <p>
-          <strong>Email:</strong> support@shopmate.com
+          <strong>Email:</strong> support@FitnessHub.com
         </p>
         <p>
           <strong>Phone:</strong> (123) 456-7890
@@ -45,22 +45,21 @@ const Contact = () => {
         </p>
       </section>
 
-      {/* Footer */}
-      <footer>
-        <p>&copy; 2024 ShopMate. All Rights Reserved.</p>
+       {/* Footer */}
+       <footer className="footer">
+            <p>Fitness Hub - Your Partner in Health and Wellness</p>
+        <p>&copy; {new Date().getFullYear()} Fitness Hub. All Rights Reserved.</p>
         <div className="social-media">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            Facebook
-          </a>{' '}
-          |{' '}
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            Twitter
-          </a>{' '}
-          |{' '}
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            Instagram
-          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a> |
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a> |
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
+        <div className="footer-links">
+          <a href="/privacy-policy">Privacy Policy</a> |
+          <a href="/terms-of-service">Terms of Service</a> |
+          <a href="/contact-us">Contact Us</a>
+        </div>
+        <p>Contact Us: <a href="mailto:info@fitnesshub.com">info@fitnesshub.com</a></p>
       </footer>
     </div>
   );

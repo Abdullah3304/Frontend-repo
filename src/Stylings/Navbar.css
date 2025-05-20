@@ -1,106 +1,214 @@
-/* General Navbar Styling */
-.navbar {
-    background-color: #333;
-    color: white;
+/* Navbar Styles */
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Make Navbar full width and position it at the top */
+  .navbar {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    background-color: #000000;
     padding: 10px 20px;
-    display: flex;
-    justify-content: space-between; /* Ensure space between elements */
-    align-items: center;
-    position: relative;
-    flex-wrap: wrap; /* Allow items to wrap in smaller screens */
-}
-
-.navbar .logo {
-    font-size: 24px;
-    color: white;
-    text-decoration: none;
-    margin-right: auto;
-}
-
-/* Centering the nav-links */
-.navbar .nav-links {
-    align-items: center;
-    list-style: none;
-    display: flex;
-    justify-content: center; /* Center the navigation links */
-    width: 100%;  /* Ensure it takes the full width */
-}
-
-.navbar .nav-links li {
-    margin: 0 15px;
-}
-
-.navbar .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-links a:hover {
-    color: #f39c12;
-}
-
-/* Centering the Search Bar and Logout Button */
-.navbar .center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed; /* Fixed at top of the page */
+    top: 0;
+    left: 0;
     width: 100%;
-}
-
-/* Search Bar Styling */
-.search-bar {
+    z-index: 1000;
+  }
+  
+  /* Navbar Logo */
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 20px; /* Gap between the logo and home button */
+  }
+  
+  /* Navbar Links Container */
+  .nav-links {
+    display: flex;
+    gap: 20px; /* Spacing between navbar links */
+    align-items: center;
+    flex-grow: 1; /* Allow the links to take up space */
+  }
+  
+  /* Navbar Link Styles */
+  .nav-links li {
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+  }
+  
+  .nav-links a:hover {
+    background-color: #555;
+    border-radius: 5px;
+  }
+  
+  .menu-container {
+    position: relative;
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Add margin for spacing */
-}
+    margin-left: 450px; /* Push the menu to the right side of the navbar */
+  }
+  .menu-icon {
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .menu-icon div {
+    height: 4px;
+    background-color: white; /* White lines for the menu icon */
+    border-radius: 2px;
+  }
 
-.search-bar input {
-    padding: 5px 10px;
-    font-size: 16px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.search-bar button {
-    background-color: #f39c12;
+  .menu-options {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    flex-direction: column;
+    width: 200px;
+    z-index: 1000;
+  }
+  
+  .menu-options.open {
+    display: flex; /* Show the dropdown when open */
+  }
+  
+  .menu-item {
     color: white;
-    padding: 5px 10px;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu-item:hover {
+    background-color: #555;
+    border-radius: 5px;
+  }
+  
+  .logout-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .logout-btn:hover {
+    background-color: #555; /* Darker shade of black on hover */
+  }
+
+  /* Join Us Button */
+  .join-us-btn {
+    background-color: #ffcc00;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .join-us-btn:hover {
+    background-color: #e6b800; /* Slightly darker yellow */
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown span {
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: flex; /* Show dropdown on hover */
+  }
+  
+  .dropdown span:hover {
+    color: #ffcc00; /* Yellow on hover */
+    background-color: #444;
+  }
+  
+  /* Mobile Navbar (Hamburger Menu) */
+.menu-icon {
+  display: none; /* Hide the menu icon by default */
+  cursor: pointer;
+  font-size: 1.8em;
+  color: white;
 }
 
-.search-bar button:hover {
-    background-color: #e67e22;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+  /* Mobile Navbar (Hamburger Menu) */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block; /* Show menu icon on mobile */
     }
 
-    .navbar .nav-links {
-        flex-direction: column;
-        margin-top: 10px;
-        justify-content: center; /* Center nav links vertically */
+    .nav-links {
+      display: none; /* Hide navbar links on mobile */
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      right: 0;
+      background-color: #ffffff;
+      width: 100%;
+      padding: 7px;
     }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  
+    .dropdown-content {
+      width: 100%; /* Ensure dropdown takes full width */
+    }
+  
+    .join-us-btn {
+      width: 100%;
+      padding: 12px;
+    }
+      /* Dropdown styles for mobile */
+  .dropdown-content {
+    width: 100%; /* Ensure dropdown takes full width on mobile */
+  }
+  }
+  
+  
 
-    .navbar .nav-links li {
-        margin: 5px 0;
-    }
-
-    .search-bar {
-        margin-top: 10px;
-    }
-
-    .center-content {
-        width: 100%;
-        justify-content: space-between; /* Ensure search bar and logout button are spaced out */
-    }
-}

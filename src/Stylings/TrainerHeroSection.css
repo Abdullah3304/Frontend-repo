@@ -1,0 +1,35 @@
+/* TrainerHeroSection.css */
+
+.trainer-hero {
+    position: relative;
+    height: 120vh; /* 80% of the viewport height */
+    background-image: url('../assets/th.png'); /* Set the background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    color: white; /* Text color */
+    background-color: #f0f0f0; /* Optional, in case background image is smaller */
+    
+}
+
+.trainer-hero h1 {
+    font-size: 5rem; /* Large font size for the heading */
+    margin: 0;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8), /* Horizontal, vertical, blur, and white color */
+                 0 0 25px rgba(255, 255, 255, 0.5); /* Outer glow effect for stronger outline */
+
+}
+
+.trainer-hero p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    font-weight: normal;
+    color: #000000;
+}

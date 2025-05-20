@@ -1,0 +1,175 @@
+/* General Styles for Join Us Page */
+.join-us-page {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4; /* Fallback color */
+}
+
+.join-us-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/joinus.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.8; /* Adjust opacity to reduce blur effect */
+    z-index: -1;
+}
+
+/* Container for the layout */
+.join-us-page .container {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+}
+
+/* Image Section Styles */
+.join-us-page .image-section {
+    flex: 1; /* Take 1/3 of the container */
+    background-color: #2d2d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.join-us-page .image-section img {
+    width: 150%;
+    height: 100%;
+}
+
+/* Form Section Styles */
+.join-us-page .form-section {
+    flex: 1.5;
+    background-color: #2d2d2d;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Header */
+.join-us-page h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #3C3CE8; /* Bright blue for the header */
+    font-weight: 600;
+}
+
+/* Sub Header */
+.join-us-page h2 {
+    color: #3C3CE8;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+/* Membership Benefits List */
+.join-us-page ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.join-us-page li {
+    padding: 15px;
+    font-size: 1.1em;
+    background-color: rgba(60, 60, 232, 0.1);
+    margin: 10px 0;
+    border-radius: 6px;
+    border-left: 4px solid #3C3CE8;
+    transition: background-color 0.3s;
+}
+
+.join-us-page li:hover {
+    background-color: rgba(60, 60, 232, 0.2);
+}
+
+/* Input Fields */
+.join-us-page input[type="text"],
+.join-us-page input[type="email"],
+.join-us-page input[type="password"] {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.join-us-page input[type="text"]:focus,
+.join-us-page input[type="email"]:focus,
+.join-us-page input[type="password"]:focus {
+    border-color: #3C3CE8;
+    outline: none;
+}
+
+/* Payment Details Section */
+.join-us-page .payment-details {
+    border-radius: 8px;
+    background-color: rgba(60, 60, 232, 0.1);
+    padding: 10px;
+    margin-top: 20px;
+    border-left: 4px solid #3C3CE8;
+}
+
+.join-us-page .payment-details h3 {
+    color: #3C3CE8;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.join-us-page .payment-details input {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.join-us-page .payment-details input:focus {
+    border-color: #3C3CE8;
+    outline: none;
+}
+
+/* Join Button */
+.join-us-page button {
+    background-color: #3C3CE8;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.join-us-page button:hover {
+    background-color: #2a2a8a;
+    transform: scale(1.02);
+}
+
+.join-us-page button:active {
+    transform: scale(0.98);
+}
+
+/* Footer Styles */
+.join-us-page footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.9em;
+}

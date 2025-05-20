@@ -1,51 +1,15 @@
-/* General Reset and Body Styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+
 
 body {
     background-color: #f8f3f0;
     color: #4d3a35;
 }
 
-/* Header Styling */
-header {
-    background-color: #8b5e3c;
-    color: white;
-    padding: 10px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-header .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-header nav ul li a:hover {
-    background-color: #a47550;
-    border-radius: 5px;
-}
 
 /* Contact Hero Section Styling */
 .contact-hero {
-    background: linear-gradient(135deg, #8b5e3c, #d7a87b);
+    background: linear-gradient(135deg, #000000, #2c2722);
     color: white;
     padding: 4em 5%;
     text-align: center;
@@ -71,7 +35,7 @@ header nav ul li a:hover {
 }
 
 .contact-form-section h2 {
-    color: #8b5e3c;
+    color: #333;
     font-size: 2em;
     margin-bottom: 1em;
 }
@@ -86,7 +50,7 @@ label {
     display: block;
     font-weight: bold;
     margin: 1em 0 0.5em;
-    color: #4d3a35;
+    color: #333;
 }
 
 input[type="text"],
@@ -101,7 +65,7 @@ textarea {
 }
 
 button.btn {
-    background-color: #8b5e3c;
+    background-color: #000000;
     color: white;
     padding: 10px 20px;
     margin-top: 1em;
@@ -114,7 +78,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #a47550;
+    background-color: #241d19;
 }
 
 /* Contact Info Section */
@@ -124,14 +88,14 @@ button.btn:hover {
 }
 
 .contact-info h2 {
-    color: #8b5e3c;
+    color: #000000;
     font-size: 2em;
     margin-bottom: 1em;
 }
 
 .contact-info p {
     font-size: 1.2em;
-    color: #4d3a35;
+    color: #000000;
 }
 
 /* Footer Styling */

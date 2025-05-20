@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   const login = (authToken) => {
     setToken(authToken);
     setIsAuthenticated(true);
-    localStorage.setItem('token','authToken', authToken , Response.data.token);
+    localStorage.setItem('authToken', authToken);  // save token under 'authToken'
   };
 
   const logout = () => {

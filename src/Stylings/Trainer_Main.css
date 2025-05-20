@@ -1,0 +1,370 @@
+
+
+  
+  /* How It Works Section */
+.how-it-works {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+    margin-bottom: 50px;
+  }
+  
+  .how-it-works-content {
+    flex: 1;
+    padding-right: 20px;
+    max-width: 50%;
+  }
+  
+  .how-it-works h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .how-it-works p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .how-it-works-image {
+    flex: 1;
+    max-width: 50%;
+    max-height: 600px; /* Set a max height to prevent the image from being too large */
+    height: auto;
+  }
+  
+  .how-it-works-image img {
+    width: 100%;
+    height: auto;
+    max-height: 550px; /* Limit the height to avoid it being too long */
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .how-it-works {
+      flex-direction: column-reverse;  /* Change from column to column-reverse */
+      text-align: center;
+      padding: 30px 15px;
+    }
+  
+    .how-it-works-content {
+      max-width: 100%;
+      padding: 0;
+    }
+  
+    .how-it-works h2 {
+      font-size: 2rem;
+    }
+  
+    .how-it-works p {
+      font-size: 1rem;
+    }
+  
+    .how-it-works-image {
+      max-width: 100%;
+      margin-bottom: 20px;  /* Add space below the image */
+    }
+  }
+  
+  /* Start Your Professional Fitness Journey Section */
+.start-your-journey {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background-color: #000000;
+    margin-bottom: 50px;
+  }
+  
+  .start-your-journey-content {
+    flex: 1;
+    padding-left: 20px;
+    max-width: 55%; /* Adjust content width */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */  
+}
+  
+  .start-your-journey h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .start-your-journey p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  .start-your-journey-image {
+    flex: 1;
+    max-width: 50%;
+    max-height: 600px; /* Set a max height to prevent the image from being too large */
+    height: auto;
+  }
+  
+  .start-your-journey-image img {
+    width: 100%;
+    height: auto;
+    max-height: 550px; /* Limit the height to avoid it being too long */
+    border-radius: 10px;
+  }
+  
+  /* Button Style */
+  .register-trainer-btn {
+    padding: 12px 24px;
+    background: yellow;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: auto; /* Do not make the button too wide */
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+  font-weight: bold;
+
+  }
+  
+  .register-trainer-btn:hover {
+    background-color: #eeca3b;
+  }
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .start-your-journey {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 15px;
+  }
+
+  .start-your-journey-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .start-your-journey h2 {
+    font-size: 2rem;
+  }
+
+  .start-your-journey p {
+    font-size: 1rem;
+  }
+
+  .start-your-journey-image {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .register-trainer-btn {
+    align-self: center;
+  }
+}
+
+  /* Stop Wasting Time! Hire Now Section */
+.stop-wasting-time {
+    background-color: #f8f8f8;
+    text-align: center;
+  }
+  
+  .stop-wasting-time-image {
+    width: 100%;
+    max-height: 350px; /* Limit image height if necessary */
+    object-fit: cover;
+    margin-bottom: 30px;
+  }
+  
+  .stop-wasting-time-content {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+
+  @media screen and (max-width: 768px) {
+    .stop-wasting-time {
+      padding: 30px 15px;
+    }
+  
+    .stop-wasting-time-content {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+  
+  }
+  /* Main container for the trainer section */
+.trainer-main {
+    text-align: center;
+  }
+  
+  /* Header with the main title centered */
+  .trainer-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
+  /* Container for the two trainer options (left and right) */
+  .trainer-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+    padding: 30px 20px
+  }
+  
+  /* Styling for each trainer option (left and right) */
+  .trainer-option {
+    width: 45%;
+    text-align: center;
+  }
+  
+  /* Styling for the trainer images */
+  .trainer-option .trainer-image {
+    width: 100%;
+    height: auto;
+    max-height: 460px; /* Limit the height of the images */
+    object-fit: cover; /* Ensure the image is properly scaled */
+    border-radius: 10px; /* Optional, if you want rounded corners for images */
+    padding-right: 0;
+  }
+  
+  /* Button styling below each image */
+  .hire-trainer-btn {
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    margin-right: 50px;
+  }
+  
+  /* Female button color to dark pink */
+.hire-trainer-btn.female-btn {
+    background: #d6336c; /* Dark pink */
+  }
+
+  .hire-trainer-btn:hover {
+    background: #0056b3; /* Darker blue when hovered */
+  }
+  
+  .hire-trainer-btn.female-btn:hover {
+    background: #c72c5f; /* Darker pink when hovered */
+  }
+
+  @media screen and (max-width: 768px) {
+    .trainer-options {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding: 20px 10px;
+    }
+  
+    .trainer-option {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center image and button inside */
+    }
+  
+    .trainer-header h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  
+    .trainer-image {
+      display: block;
+      max-width: 90%; /* Adjust as needed */
+      margin: 0 auto;
+    }
+  
+    .hire-trainer-btn {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+  
+  /* Benefits Section Styling */
+.trainer-benefits {
+  background-color: #000000;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.trainer-benefits h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.benefit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;  /* Ensures it wraps on smaller screens */
+    margin: 0 auto;
+}
+
+.benefit {
+    text-align: center;
+    width: 30%; /* Adjust this value to control the size of each benefit */
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.benefit img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+.benefit p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .benefit-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .benefit {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .trainer-benefits h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .benefit p {
+    font-size: 1rem;
+  }
+}

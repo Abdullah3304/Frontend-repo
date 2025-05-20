@@ -1,18 +1,51 @@
-.logout-btn {
+/*.logout-btn {
     position: fixed;   /* Fixed position */
-    top: 12px;         /* Adjust as needed */
-    right: 20px;       /* Adjust as needed */
-    background-color: #f44336;  /* Red background */
-    color: white;
+  /*  top: 7px;         /* Adjust as needed */
+   /* right: 20px;       /* Adjust as needed */
+   /* background-color: #e71405;  /* Red background */
+    /*color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     z-index: 1000;     /* Ensure it stays on top of other content */
+  /*}
+  
+  .logout-btn:hover {
+    background-color: #d32f2f;  /* Darker red on hover */
+  /*}
+
+  */
+
+  .logout-btn {
+    position: fixed;   /* Fixed position */
+    top: 5px;         /* Adjust as needed */
+    right: 20px;       /* Adjust as needed */
+    background-color: #f44336;  /* Red background */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;   /* Adjust icon size */
+    z-index: 1000;     /* Ensure it stays on top of other content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .logout-btn:hover {
     background-color: #d32f2f;  /* Darker red on hover */
   }
+  
+  .logout-btn:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  .logout-btn svg {
+    margin: 0; /* Ensure no margin around the icon */
+    font-size: 24px;  /* Adjust icon size */
+  }
+  
   
