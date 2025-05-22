@@ -70,7 +70,13 @@ const RegisterTrainer = () => {
         }
 
         try {
-            await axios.post('http://localhost:5000/api/trainers/register', formData);
+            await axios.post('http://localhost:5000/api/trainers/register', formData,
+                {
+                    params: {
+                        token: token
+                    }
+                }
+            );
             toast.success('Trainer registered successfully!');
             setTrainerData({
                 name: '',

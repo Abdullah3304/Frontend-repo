@@ -10,13 +10,20 @@ const MaleTrainers = () => {
     const [selectedSpecs, setSelectedSpecs] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedType, setSelectedType] = useState('All Types');
-    const [priceRange, setPriceRange] = useState(1000);
+    const [priceRange, setPriceRange] = useState(10000);
     const cardsPerPage = 6;
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/trainers/male')
+        if (token) {
+            axios.get('http://localhost:5000/api/trainers/male', {
+                params: {
+                    token: token
+                }
+            })
             .then((res) => setTrainers(res.data))
             .catch((err) => console.error(err));
+        }
     }, []);
 
     const handleSpecChange = (e) => {

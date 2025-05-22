@@ -23,7 +23,7 @@
 
 /* Trainer image on left */
 .trainer-image {
-    width: 200px;
+    max-width: 350px;
     height: 350px;
     object-fit: contain; /* Ensures full image is visible without cropping */
     border-radius: 10px;
