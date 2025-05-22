@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Stylings/TrainerCard.css';
-
+import { Link } from 'react-router-dom';
 const TrainerCard = ({ trainer }) => {
     const [showSlots, setShowSlots] = useState(false);
 
@@ -24,8 +24,9 @@ const TrainerCard = ({ trainer }) => {
                 <p><strong>Description:</strong> {trainer.description}</p>
 
                 <div className="button-group">
-                    <button className="btn">Buy Online Course</button>
-                    <button className="btn">Book Physical Class</button>
+                    <Link to={`/hire-trainer/${trainer._id}`} className="btn">
+                        Hire Now
+                    </Link>
                 </div>
 
                 <button className="toggle-slots-btn" onClick={toggleSlots}>

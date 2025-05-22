@@ -23,12 +23,13 @@ import VideoTutorials from './components/VideoTutorials';
 import MaleTrainers from './components/MaleTrainers'; // Import Male Trainers Component
 import FemaleTrainers from './components/FemaleTrainers'; // Import Female Trainers Component
 import RegisterTrainer from './components/RegisterTrainer'; // Import Register Trainer Component
-import MyTrainerProfile from './components/MyTrainerProfile';
-import ChatbotPage from './components/ChatbotPage';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword'
 import Receipt from './components/Receipt';
-import MyOrders from './components/MyOrders'
+import TrainerReceipt from './components/TrainerReceipt';
+import MyOrders from './components/MyOrders';
+import ChatApp from './components/ChatApp';
+import HireTrainer from './components/HireTrainer';
 import './Stylings/App.css';
 
 const App = () => {
@@ -79,8 +80,8 @@ const App = () => {
         <Route path="/trainer/male" element={<ProtectedRoute isLoggedIn={isLoggedIn}><MaleTrainers /></ProtectedRoute>} />
         <Route path="/trainer/female" element={<ProtectedRoute isLoggedIn={isLoggedIn}><FemaleTrainers /></ProtectedRoute>} />
         <Route path="/register-trainer" element={<ProtectedRoute isLoggedIn={isLoggedIn}><RegisterTrainer /></ProtectedRoute>} />
-        <Route path="/my-trainer-profile" element={<ProtectedRoute isLoggedIn={isLoggedIn}><MyTrainerProfile /></ProtectedRoute>} />
-
+        <Route path="/hire-trainer/:id" element={<ProtectedRoute isLoggedIn={isLoggedIn}><HireTrainer /></ProtectedRoute>} />        
+        <Route path="/trainer-receipt" element={<TrainerReceipt />} />
         {/* Routes without Navbar */}
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/Contact" element={<Contact />} />
@@ -89,7 +90,7 @@ const App = () => {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
-
+        <Route path="/ChatApp" element={<ChatApp />} />
 
         {/* Product details page */}
         <Route path="/products/:id" element={<ProductDetails />} />
@@ -100,7 +101,7 @@ const App = () => {
         {/* Admin Routes */}
         {/* Protect Admin Routes based on isAdmin */}
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/chatbot" element={<ProtectedRoute isLoggedIn={isLoggedIn}><ChatbotPage /></ProtectedRoute>} />
+        
       </Routes>
       {shouldShowNavbar && <Footer />}
       

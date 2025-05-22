@@ -4,9 +4,10 @@ export default function NewThreadForm({ onSubmit }) {
     const [formData, setFormData] = useState({
         title: '',
         author: '',
-        category: '', // Default category
+        category: '',
         content: ''
     });
+    const [error, setError] = useState(null);
 
     // Predefined categories
     const categories = [
@@ -17,15 +18,35 @@ export default function NewThreadForm({ onSubmit }) {
         'General'
     ];
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit(formData);
-        setFormData({ title: '', author: '', category: '', content: '' });
+        setError(null);
+
+        try {
+            // Validate form data
+            if (!formData.title.trim() || !formData.content.trim()) {
+                throw new Error('Title and content are required');
+            }
+
+            // Call the parent component's onSubmit function
+            await onSubmit(formData);
+            
+            // Reset form
+            setFormData({
+                title: '',
+                author: '',
+                category: '',
+                content: ''
+            });
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     return (
         <div className="new-thread-form">
             <h3>Ask a New Question</h3>
+            {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

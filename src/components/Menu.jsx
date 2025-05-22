@@ -33,9 +33,7 @@ const Menu = ({ setIsLoggedIn }) => {
 
       {/* Dropdown Menu */}
       <div className={`menu-options ${isMenuOpen ? 'open' : ''}`}>
-        <Link to="/tutorial-chat" className="menu-item">
-          Tutorial Chat
-        </Link>
+        <Link to="/ChatApp" className="menu-item">ChatBot</Link>
         <Link to="/settings" className="menu-item">
           Settings
         </Link>

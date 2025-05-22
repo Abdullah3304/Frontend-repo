@@ -1,0 +1,89 @@
+/* src/Stylings/TrainerReceipt.css */
+
+.receipt-container {
+  max-width: 600px;
+  margin: 6rem auto 2rem auto; /* Pushes below navbar */
+  padding: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.print-btn {
+    margin-right: 0;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ffc107;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.receipt-container h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.receipt-container p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.receipt-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.receipt-actions button {
+  margin-right: 0;
+  padding: 0.6rem 1.4rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.receipt-actions button:hover {
+  background-color: #218838;
+}
+
+/* ✅ Mobile responsiveness */
+@media screen and (max-width: 600px) {
+  .receipt-container {
+    margin-top: 5rem;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .print-btn {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .receipt-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .receipt-container p {
+    font-size: 0.95rem;
+  }
+
+  .receipt-actions button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}

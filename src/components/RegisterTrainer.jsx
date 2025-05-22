@@ -15,7 +15,9 @@ const RegisterTrainer = () => {
         availability: 'online',
         description: '',
         image: '',
-        gmail: ''
+        gmail: '',
+        onlineClassLink: '',
+        gymLocation: ''
     });
 
     const [slots, setSlots] = useState([{ day: '', startTime: '', endTime: '' }]);
@@ -60,6 +62,8 @@ const RegisterTrainer = () => {
         formData.append('description', trainerData.description);
         formData.append('gmail', trainerData.gmail);
         formData.append('availableSlots', JSON.stringify(slots));
+        formData.append('onlineClassLink', trainerData.onlineClassLink);
+        formData.append('gymLocation', trainerData.gymLocation);
         formData.append('token', token)
         if (trainerData.image && trainerData.image instanceof File) {
             formData.append('image', trainerData.image);
@@ -124,6 +128,27 @@ const RegisterTrainer = () => {
                                 <option value="online">Online</option>
                                 <option value="physical">Physical</option>
                             </select>
+                            {trainerData.availability === 'online' && (
+                                <input
+                                    type="text"
+                                    name="onlineClassLink"
+                                    value={trainerData.onlineClassLink}
+                                    onChange={handleChange}
+                                    placeholder="Online Class Link"
+                                    required
+                                />
+                            )}
+
+                            {trainerData.availability === 'physical' && (
+                                <input
+                                    type="text"
+                                    name="gymLocation"
+                                    value={trainerData.gymLocation}
+                                    onChange={handleChange}
+                                    placeholder="Gym Location"
+                                    required
+                                />
+                            )}
 
                             <textarea name="description" value={trainerData.description} onChange={handleChange} placeholder="Description" required style={{ gridColumn: '1 / -1' }} />
                             <input type="file" name="image" accept="image/*" onChange={(e) => setTrainerData({ ...trainerData, image: e.target.files[0] })} style={{ gridColumn: '1 / -1' }} />

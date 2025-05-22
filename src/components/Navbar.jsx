@@ -27,7 +27,6 @@ const Navbar = () => {
             <Link to="/trainer">Trainer</Link>
             <Link to="/register-trainer">Register</Link>
             <Link to="/video-tutorials">Exercise Videos</Link>
-            <Link to="/my-trainer-profile">Manage My Profile</Link>
           </div>
         </div>
 
@@ -47,7 +46,6 @@ const Navbar = () => {
             <li><Link to="/admin">Enlist</Link></li>
           </div>
         </div>
-        <Link to="/chatbot" className="chatbot">ChatBot</Link>
         <Link to="/join-us" className="join-us-btn">Join Us</Link>
         
         {/* Add the Menu component for the dropdown in the top-right corner */}
