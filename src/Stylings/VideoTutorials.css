@@ -1,90 +1,222 @@
-/* Video Tutorials Page Styling */
+/* Flexible Video Tutorials Component */
 .video-tutorials {
-    padding: 40px;
-    background-color: rgba(30, 30, 30, 0.9); /* Darker background */
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    max-width: 1200px;
-    width: 90%;
-    position: relative;
-    margin: 0 auto;
-  }
-  
-  .video-tutorials h1 {
-    text-align: center;
-    color: #ffffff;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  }
-  
-  /* Video List */
-  .video-list {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    padding: 10px 0;
-    scroll-behavior: smooth;
-    text-align: center;
-  }
-  
-  /* Video Card */
-  .video-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    min-width: 300px;
-    margin-right: 20px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, background-color 0.3s;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .video-card:hover {
-    transform: scale(1.05);
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .video-card h2, .video-card p {
-    z-index: 2;
-    position: relative;
-  }
-  
-  .video-card p:last-of-type {
-    color: #3C3CE8;
-    font-weight: bold;
-  }
-  
+  padding: 40px;
+  background-color: rgba(30, 30, 30, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 
+.video-tutorials h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.video-list {
   
-  .arrow {
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    color: #ffffff;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  gap: 20px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.video-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.video-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  min-width: 300px;
+  height: 400px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.video-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.video-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: white;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-card h2 {
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.video-card p {
+  color: #cccccc;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.watch-button {
+  background-color: yellow;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.watch-button:hover {
+  background-color: rgb(199, 199, 55);
+  transform: translateY(-2px);
+}
+
+/* Arrow Navigation - ADDED */
+.arrow {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 2rem;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.arrow-left {
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.arrow-right {
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.video-tutorials:hover .arrow {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-tutorials {
+    padding: 20px;
+  }
+
+  .video-tutorials h1 {
     font-size: 2rem;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
   }
-  
-  .arrow-left {
-    left: 20px;
+
+  .video-card {
+    min-width: 250px;
+    height: 350px;
   }
-  
-  .arrow-right {
-    right: 20px;
+
+  /* Arrow responsive styles */
+  .arrow {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
   }
-  
-  .arrow:hover {
-    font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .video-tutorials {
+    padding: 15px;
   }
-  
-  .video-tutorials:hover .arrow {
-    opacity: 1;
+
+  .video-tutorials h1 {
+    font-size: 1.8rem;
   }
-  
+
+  .video-card {
+    min-width: 220px;
+    height: 320px;
+  }
+
+  .video-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .video-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Smaller arrows on mobile */
+  .arrow {
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Theme variants */
+.video-tutorials.light-theme {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.1);;
+}
+
+.video-tutorials.light-theme h1 {
+  color: rgba(255, 255, 255, 0.1);;
+  text-shadow: none;
+}
+
+.video-tutorials.compact {
+  padding: 20px;
+}
+
+.video-tutorials.compact .video-card {
+  min-width: 250px;
+  height: 300px;
+}

@@ -76,16 +76,16 @@
 
 /* Toggle Slots Button */
 .toggle-slots-btn {
-    margin-top: 10px;
     background-color: transparent;
-    border: 2px solid #f4c542;
-    color: #f4c542;
+    border: 2px solid #000000;
+    color: #000000;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 20px auto 0 auto;
+    text-decoration: none
 }
 
 .toggle-slots-btn:hover {

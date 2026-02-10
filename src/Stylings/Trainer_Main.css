@@ -231,16 +231,19 @@
   .trainer-option {
     width: 45%;
     text-align: center;
+    display: grid;
   }
   
   /* Styling for the trainer images */
   .trainer-option .trainer-image {
+    margin-right: 0;
     width: 100%;
     height: auto;
     max-height: 460px; /* Limit the height of the images */
     object-fit: cover; /* Ensure the image is properly scaled */
     border-radius: 10px; /* Optional, if you want rounded corners for images */
     padding-right: 0;
+    margin-left: 200px;
   }
   
   /* Button styling below each image */
@@ -256,7 +259,7 @@
     transition: background 0.3s ease;
     text-decoration: none; /* Remove underline */
     display: inline-block;
-    margin-right: 50px;
+    margin-right: 300px;
   }
   
   /* Female button color to dark pink */

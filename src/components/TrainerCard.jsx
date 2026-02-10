@@ -14,7 +14,8 @@ const TrainerCard = ({ trainer }) => {
         price: trainer.price,
         availability: trainer.availability,
         gmail: trainer.gmail,
-        description: trainer.description
+        description: trainer.description,
+        onlineClassLink: trainer.onlineClassLink
     });
     const token = localStorage.getItem('token');
 
@@ -47,7 +48,8 @@ const TrainerCard = ({ trainer }) => {
             price: trainer.price,
             availability: trainer.availability,
             gmail: trainer.gmail,
-            description: trainer.description
+            description: trainer.description,
+            onlineClassLink: trainer.onlineClassLink
         });
     }
 
@@ -156,6 +158,15 @@ const TrainerCard = ({ trainer }) => {
                             required 
                         />
                     </div>
+                    <div className="form-group">
+                        <label>Class Location</label>
+                        <textarea 
+                            name="onlineClassLink" 
+                            value={editFormData.onlineClassLink} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
+                    </div>
                     
                     <div className="button-group">
                         <button type="submit" className="btn">Save Changes</button>
@@ -183,12 +194,12 @@ const TrainerCard = ({ trainer }) => {
                 <p><strong>Email:</strong> {trainer.gmail}</p>
                 <p><strong>Description:</strong> {trainer.description}</p>
 
+                    {!trainer.isCreator &&
                 <div className="button-group">
                     <Link to={`/hire-trainer/${trainer._id}`} className="btn">
                         Hire Now
                     </Link>
-                </div>
-
+                </div>}
                 <div className="button-group">
                     <button className="toggle-slots-btn" onClick={toggleSlots}>
                         {showSlots ? 'Hide Slots' : 'Show Available Slots'}

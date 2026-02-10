@@ -7,6 +7,7 @@ const ChatSidebar = ({ chats, selectChat, deleteConversation, startNewConversati
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  console.log("<chats>", chats)
 
   return (
     <div className="relative">
@@ -19,10 +20,10 @@ const ChatSidebar = ({ chats, selectChat, deleteConversation, startNewConversati
       <div className={`chat-sidebar w-2/3 sm:w-full h-full border-r p-4 fixed md:relative bg-[#1e201e] md:block ${isSidebarOpen ? 'block' : 'hidden'}`}>
         <h2 className="text-xl mb-4">ChattyBot</h2>
         <ul>
-          {chats.length === 0 ? (
+          {chats.length === 1 ? (
             <li>No conversations yet</li>
           ) : (
-            chats.map((chat, index) => (
+            chats.slice(1).map((chat, index) => (
               <li
                 key={index}
                 onClick={() => selectChat(index)}
@@ -47,7 +48,7 @@ const ChatSidebar = ({ chats, selectChat, deleteConversation, startNewConversati
           )}
         </ul>
         <button
-          onClick={startNewConversation}
+          onClick={() => startNewConversation()}
           className="mt-4 p-2 bg-[#ECDFCC] text-gray-800 rounded hover:bg-[#e2d9cc]"
         >
           New Chat

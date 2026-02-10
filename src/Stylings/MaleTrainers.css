@@ -133,3 +133,23 @@
     /* Yellow highlight */
     color: #000;
 }
+
+/* Clear Filters Button */
+.sidebar button {
+    text-decoration: none;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #f5c518; /* Yellow */
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #e0b700; /* Darker yellow */
+}

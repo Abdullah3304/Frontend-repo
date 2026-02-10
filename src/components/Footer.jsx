@@ -10,7 +10,7 @@ const Footer = () => {
                 <ul>
                     <li><Link to="/about">About Page</Link></li>
                     <li><Link to="/contact">Contact Page</Link></li>
-                    <li>Email: <span>FitnessHub4116@gmail.com</span></li>
+                    <li>Email: <span>Info@Flexyfuel.com</span></li>
                 </ul>
             </div>
 
@@ -18,10 +18,10 @@ const Footer = () => {
             <div className="footer-section">
                 <h3>QUICK LINKS</h3>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/shop">Shop</Link></li>
-                    <li><Link to="/blog">Blog</Link></li>
-                    <li><Link to="/faqs">FAQs</Link></li>
+                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/product">Shop</Link></li>
+                    <li><Link to="/trainer">Trainer</Link></li>
+                    <li><Link to="/ChatApp">ChatBot</Link></li>
                 </ul>
             </div>
 
@@ -30,8 +30,7 @@ const Footer = () => {
                 <h3>CUSTOMER AREA</h3>
                 <ul>
                     <li><Link to="/community">Community</Link></li>
-                    <li><Link to="/cart">Shopping Cart</Link></li>
-                    <li><Link to="/checkout">Checkout</Link></li>
+                    <li><Link to="/fitness-cart">Shopping Cart</Link></li>
                 </ul>
             </div>
 
@@ -51,7 +50,7 @@ const Footer = () => {
                 <h3>SUBSCRIBE TO FITNESS</h3>
                 <p>Unlock exclusive benefits and personalized fitness plans with our membership.</p>
                 <Link to="/join-us">
-                    <button className="subscribe-btn">Subscribe</button>
+                    <button className="subscribe-btn">Join Us</button>
                 </Link>
             </div>
         </footer>

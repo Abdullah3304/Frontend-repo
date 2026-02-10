@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import '../Stylings/ResetPassword.css';
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -25,40 +26,42 @@ const ResetPassword = () => {
   console.log("<<<<<<<<<>>>>>>>>>>>")
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white shadow-lg p-8 rounded-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4">Forgot Password</h2>
-        <form onSubmit={handleSubmit}>
-          <label className="block mb-2 text-sm font-medium">Enter Password to Update</label>
+    <div className="reset-container">
+      <div className="reset-box">
+        <h1 className="brand-title">
+          <span className="Flex">Fitness</span>
+          <span className="Fuel">Hub</span>
+        </h1>
+        <h2 className="reset-heading">Reset Your Password</h2>
+
+        <form onSubmit={handleSubmit} className="reset-form">
+          <label>New Password</label>
           <input
-            type="text"
+            type="password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
             required
-            className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
-            placeholder="New Password"
+            placeholder="Enter new password"
           />
+
+          <label>Confirm Password</label>
           <input
-            type="text"
+            type="password"
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}
             required
-            className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
-            placeholder="Confirm Password"
+            placeholder="Confirm new password"
           />
-          <button
-            type="submit"
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
-          >
+
+          <button type="submit" className="reset-button">
             Reset Password
           </button>
         </form>
 
-        {message && <p className="mt-4 text-green-600">{message}</p>}
-        {error && <p className="mt-4 text-red-600">{error}</p>}
+        {message && <p className="message-success">{message}</p>}
+        {error && <p className="message-error">{error}</p>}
       </div>
     </div>
   );
 };
-
 export default ResetPassword;

@@ -124,15 +124,15 @@ const RegisterTrainer = () => {
                                     <option key={index} value={spec}>{spec}</option>
                                 ))}
                             </select>
-                            <input type="number" name="price" value={trainerData.price} onChange={handleChange} placeholder="Price" required />
+                            <input type="number" name="price" value={trainerData.price} onChange={handleChange} placeholder="Fees" required />
 
                             <select name="gender" value={trainerData.gender} onChange={handleChange}>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
                             <select name="availability" value={trainerData.availability} onChange={handleChange}>
-                                <option value="online">Online</option>
-                                <option value="physical">Physical</option>
+                                <option value="online">Online Session</option>
+                                <option value="physical">Physical Session</option>
                             </select>
                             {trainerData.availability === 'online' && (
                                 <input

@@ -1,33 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../Stylings/Myorder.css';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const userId = localStorage.getItem('userId'); // Replace with your auth method
-      const res = await axios.get(`http://localhost:5000/api/orders/${userId}`);
-      setOrders(res.data);
+      try {
+        const res = await axios.get('http://localhost:5000/api/orders/my-orders', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setOrders(res.data);
+      } catch (err) {
+        console.error('Error fetching orders:', err);
+      }
     };
+
     fetchOrders();
   }, []);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>📦 My Past Orders</h1>
-      {orders.map(order => (
-        <div key={order._id} style={{ border: '1px solid #ccc', padding: '1rem', marginBottom: '1rem' }}>
-          <p><strong>Date:</strong> {order.date}</p>
-          <p><strong>Total:</strong> ${order.total}</p>
-          <p><strong>Address:</strong> {order.address}</p>
-          <ul>
-            {order.items.map(item => (
-              <li key={item._id}>{item.quantity} x {item.name} - ${item.price}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div className="my-orders">
+      <h2>My Orders</h2>
+      {orders.length === 0 ? (
+        <p>No orders yet.</p>
+      ) : (
+        orders.map((order, index) => (
+          <div key={index} className="order-card">
+            <p><strong>Order Date:</strong> {new Date(order.createdAt).toLocaleString()}</p>
+            <p><strong>Payment Method:</strong> {order.paymentMethod}</p>
+            <p><strong>Shipping:</strong> {order.buyer.streetNumber}, {order.buyer.street}, {order.buyer.city}, {order.buyer.country}</p>
+            <p><strong>Phone:</strong> {order.buyer.phone}</p>
+
+            <div className="products">
+              {order.products.map((p, i) => (
+                <div key={i} className="product">
+                  <img src={`http://localhost:5000/${p.image}`} alt={p.name} />
+                  <div>
+                    <p><strong>{p.name}</strong></p>
+                    <p>Price: Rs {p.price}</p>
+                    <p>Qty: {p.quantity}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 };

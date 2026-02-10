@@ -1,7 +1,7 @@
 /* Container for all product cards */
 .product-cards {
   display: flex;
-  flex-direction: column;
+  
   gap: 20px;
 }
 

@@ -16,7 +16,7 @@ const Home = ({ userName }) => {
         style={{ backgroundImage: `url(${homeHero})` }}
       >
         <div className="hero-content">
-          <h1>Welcome {userName ? userName : "to Fitness Hub"}</h1>
+          <h1>Welcome {userName ? userName : "to Flex Fuel"}</h1>
           <p>DON'T STOP WHEN IT HURTS, STOP WHEN YOU'RE DONE!</p>
           <Link to="/join-us" className="btn primary-btn">Join Now</Link>
         </div>
@@ -62,7 +62,7 @@ const Home = ({ userName }) => {
           <p>
             Browse a wide range of premium supplements, gym accessories, apparel, and fitness gadgets carefully curated for all fitness enthusiasts.
           </p>
-          <Link to="/products" className="shop-btn">Shop Now</Link>
+          <Link to="/product" className="shop-btn">Shop Now</Link>
         </div>
         <div className="shop-image">
           <img src={ShopImage} alt="Fitness Store Preview" />
@@ -97,7 +97,7 @@ const Home = ({ userName }) => {
             <p>
               Have questions about workouts, nutrition, or recovery? Our AI chatbot is available 24/7 to guide you on your fitness journey.
             </p>
-            <Link to="/chatbot" className="btn">Ask the AI Now</Link>
+            <Link to="/ChatApp" className="btn">Ask the AI Now</Link>
           </div>
           <div className="chatbot-image">
             <img src={require('../assets/chatbot.png')} alt="Fitness Chatbot" />

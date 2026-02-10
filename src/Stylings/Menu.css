@@ -1,70 +1,61 @@
 /* Menu container */
 .menu-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Menu icon (hamburger) */
-  .menu-icon {
-    width: 30px;
-    height: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-  
-  .menu-icon div {
-    height: 4px;
-    background-color: white; /* White lines for the menu icon */
-    border-radius: 2px;
-  }
-  
-  /* Dropdown menu */
-  .menu-options {
-    position: absolute;
-    top: 50px; /* Adjust as needed */
-    right: 0;
-    background-color: #333; /* Same dark color as the navbar */
-    border-radius: 5px;
-    display: none;
-    flex-direction: column;
-    padding: 10px;
-    z-index: 1000;
-  }
-  
-  /* When the menu is open, show the dropdown */
-  .menu-options.open {
-    display: flex;
-  }
-  
-  /* Menu items */
-  .menu-item {
-    color: white; /* White text */
-    text-decoration: none;
-    padding: 10px 15px;
-    text-align: center;
-  }
-  
-  .menu-item:hover {
-    background-color: #555; /* Hover effect */
-    border-radius: 5px;
-  }
-  
-  /* Logout button style inside the menu */
-  .logout-btn {
-    background-color: rgb(212, 4, 4);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .logout-btn:hover {
-    background-color: #555; /* Hover effect on the logout button */
-  }
-  
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Menu icon (hamburger) */
+.menu-icon {
+  position: absolute;
+  left: 480px;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-icon div {
+  height: 4px;
+  background-color: white;
+  /* White lines for the menu icon */
+  border-radius: 2px;
+}
+
+/* Dropdown menu */
+.menu-options {
+      left: 400px;
+  position: absolute;
+  top: 50px;
+  /* Adjust as needed */
+  right: 0;
+  background-color: #333;
+  /* Same dark color as the navbar */
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 1000;
+}
+
+/* When the menu is open, show the dropdown */
+.menu-options.open {
+  display: flex;
+}
+
+/* Menu items */
+.menu-item {
+  color: white;
+  /* White text */
+  text-decoration: none;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  background-color: #555;
+  /* Hover effect */
+  border-radius: 5px;
+}

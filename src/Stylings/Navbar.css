@@ -1,214 +1,215 @@
 /* Navbar Styles */
 body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Make Navbar full width and position it at the top */
-  .navbar {
-    display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center;
-    background-color: #000000;
-    padding: 10px 20px;
-    position: fixed; /* Fixed at top of the page */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  /* Navbar Logo */
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    margin-right: 20px; /* Gap between the logo and home button */
-  }
-  
-  /* Navbar Links Container */
-  .nav-links {
-    display: flex;
-    gap: 20px; /* Spacing between navbar links */
-    align-items: center;
-    flex-grow: 1; /* Allow the links to take up space */
-  }
-  
-  /* Navbar Link Styles */
-  .nav-links li {
-    list-style: none;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-  }
-  
-  .nav-links a:hover {
-    background-color: #555;
-    border-radius: 5px;
-  }
-  
-  .menu-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-left: 450px; /* Push the menu to the right side of the navbar */
-  }
-  .menu-icon {
-    width: 30px;
-    height: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-  .menu-icon div {
-    height: 4px;
-    background-color: white; /* White lines for the menu icon */
-    border-radius: 2px;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  .menu-options {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    flex-direction: column;
-    width: 200px;
-    z-index: 1000;
-  }
-  
-  .menu-options.open {
-    display: flex; /* Show the dropdown when open */
-  }
-  
-  .menu-item {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .menu-item:hover {
-    background-color: #555;
-    border-radius: 5px;
-  }
-  
-  .logout-btn {
-    background-color: black;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 5px;
-  }
-  
-  .logout-btn:hover {
-    background-color: #555; /* Darker shade of black on hover */
-  }
+/* Make Navbar full width and position it at the top */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  /* Align items to the left */
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  position: fixed;
+  /* Fixed at top of the page */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-  /* Join Us Button */
-  .join-us-btn {
-    background-color: #ffcc00;
-    padding: 8px 16px;
-    border-radius: 5px;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .join-us-btn:hover {
-    background-color: #e6b800; /* Slightly darker yellow */
-  }
-  
-  /* Dropdown Styles */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown span {
-    color: white;
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #444;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    width: 200px;
-  }
-  
-  .dropdown-content a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: flex; /* Show dropdown on hover */
-  }
-  
-  .dropdown span:hover {
-    color: #ffcc00; /* Yellow on hover */
-    background-color: #444;
-  }
-  
-  /* Mobile Navbar (Hamburger Menu) */
+/* Navbar Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+  /* Gap between the logo and home button */
+}
+
+/* Navbar Links Container */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  /* Spacing between navbar links */
+  align-items: center;
+  flex-grow: 1;
+  /* Allow the links to take up space */
+}
+
+/* Navbar Link Styles */
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.nav-links a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 450px;
+  /* Push the menu to the right side of the navbar */
+}
+
+
+
+.menu-icon div {
+  height: 4px;
+  background-color: white;
+  /* White lines for the menu icon */
+  border-radius: 2px;
+}
+
+.menu-options {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  width: 200px;
+  z-index: 1000;
+}
+
+.menu-options.open {
+  display: flex;
+  /* Show the dropdown when open */
+}
+
+.menu-item {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+
+/* Join Us Button */
+.navbar .join-us-btn {
+  font-weight: bold;
+  background-color: yellow;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.join-us-btn:hover {
+  background-color: rgb(212, 212, 45);
+  /* Slightly darker yellow */
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown span {
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.dropdown-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  /* Show dropdown on hover */
+}
+
+.dropdown span:hover {
+  color: #ffcc00;
+  /* Yellow on hover */
+  background-color: #444;
+}
+
+
 .menu-icon {
-  display: none; /* Hide the menu icon by default */
+  position: absolute;
+  left: 480px;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
   font-size: 1.8em;
   color: white;
 }
 
-  /* Mobile Navbar (Hamburger Menu) */
-  @media (max-width: 768px) {
-    .menu-icon {
-      display: block; /* Show menu icon on mobile */
-    }
+/* Mobile Navbar (Hamburger Menu) */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    /* Show menu icon on mobile */
+  }
 
-    .nav-links {
-      display: none; /* Hide navbar links on mobile */
-      flex-direction: column;
-      position: fixed;
-      top: 60px;
-      right: 0;
-      background-color: #ffffff;
-      width: 100%;
-      padding: 7px;
-    }
-  
-    .nav-links.open {
-      display: flex;
-    }
-  
-    .dropdown-content {
-      width: 100%; /* Ensure dropdown takes full width */
-    }
-  
-    .join-us-btn {
-      width: 100%;
-      padding: 12px;
-    }
-      /* Dropdown styles for mobile */
+  .nav-links {
+    display: none;
+    /* Hide navbar links on mobile */
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 7px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
   .dropdown-content {
-    width: 100%; /* Ensure dropdown takes full width on mobile */
+    width: 100%;
+    /* Ensure dropdown takes full width */
   }
-  }
-  
-  
 
+  .join-us-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Dropdown styles for mobile */
+  .dropdown-content {
+    width: 100%;
+    /* Ensure dropdown takes full width on mobile */
+  }
+}

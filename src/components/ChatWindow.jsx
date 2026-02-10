@@ -6,6 +6,7 @@ const ChatWindow = ({ chat = [], onSendMessage, conversationId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('<<<<<<<<<<<<<<<<<<', conversationId, 'chat', chat);
     if (!conversationId) {
       console.error("Conversation ID is missing!");
       return;
@@ -53,6 +54,7 @@ const ChatWindow = ({ chat = [], onSendMessage, conversationId }) => {
         )}
         <div ref={messagesEndRef} />
       </div>
+      {conversationId &&
       <form onSubmit={handleSubmit} className="flex-none flex">
         <input
           type="text"
@@ -64,7 +66,7 @@ const ChatWindow = ({ chat = [], onSendMessage, conversationId }) => {
         <button type="submit" className="bg-[#ECDFCC] text-gray-800 p-2 ml-2">
           Send
         </button>
-      </form>
+      </form>}
     </div>
   );
 };

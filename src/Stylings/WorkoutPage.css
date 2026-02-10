@@ -42,6 +42,7 @@ h1 {
 }
 
 .workout-form {
+  margin-left: 0px;
   display: flex;
   flex-direction: column;
   gap: 10px;

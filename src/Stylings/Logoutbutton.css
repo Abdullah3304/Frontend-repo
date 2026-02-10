@@ -1,51 +1,40 @@
-/*.logout-btn {
-    position: fixed;   /* Fixed position */
-  /*  top: 7px;         /* Adjust as needed */
-   /* right: 20px;       /* Adjust as needed */
-   /* background-color: #e71405;  /* Red background */
-    /*color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 1000;     /* Ensure it stays on top of other content */
-  /*}
+.logout-btn {
+  position: fixed;        /* Always stays in the same position */
+  top: 2px;              /* Distance from top */
+  right: 20px;            /* Distance from right */
+
+  width: 60px;            /* Fixed width for the icon button */
+  height: 55px;           /* Fixed height */
   
-  .logout-btn:hover {
-    background-color: #d32f2f;  /* Darker red on hover */
-  /*}
+  background-color: #ff4d4d;  /* Red button */
+  color: white;
+  border: none;
+  border-radius: 50%;         /* Circle shape */
+  cursor: pointer;
 
-  */
+  font-size: 20px;         /* Icon size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 9999;           /* Stays above all elements */
+}
+
+/* Hover effect */
+.logout-btn:hover {
+  background-color: #e60000;
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
   .logout-btn {
-    position: fixed;   /* Fixed position */
-    top: 5px;         /* Adjust as needed */
-    right: 20px;       /* Adjust as needed */
-    background-color: #f44336;  /* Red background */
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 24px;   /* Adjust icon size */
-    z-index: 1000;     /* Ensure it stays on top of other content */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
-  
-  .logout-btn:hover {
-    background-color: #d32f2f;  /* Darker red on hover */
-  }
-  
-  .logout-btn:focus {
-    outline: none; /* Remove focus outline */
-  }
-  
-  .logout-btn svg {
-    margin: 0; /* Ensure no margin around the icon */
-    font-size: 24px;  /* Adjust icon size */
-  }
-  
-  
+}

@@ -1,0 +1,33 @@
+/* Stylings/AdminPanel.css */
+.admin-panel {
+    padding: 2rem;
+}
+.admin-panel h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.admin-panel section {
+    margin-bottom: 3rem;
+}
+.admin-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+.admin-panel li {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-panel button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.admin-panel button:hover {
+    background-color: #c82333;
+}

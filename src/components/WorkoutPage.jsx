@@ -14,10 +14,24 @@ const App = () => {
     fetchWorkouts();
   }, []);
 
+  const getAuthHeader = () => {
+    const token = localStorage.getItem('token');
+    console.log('Token from localStorage:', token);
+    return {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    };
+  };
+
   const fetchWorkouts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/workouts');
+      const headers = getAuthHeader();
+      console.log('Request headers:', headers);
+      const response = await fetch('http://localhost:5000/api/workouts', {
+        headers: headers
+      });
       const data = await response.json();
+      console.log('Fetched workouts:', data);
       setWorkouts(data);
     } catch (error) {
       console.error('Error fetching workouts:', error);
@@ -26,24 +40,27 @@ const App = () => {
 
   const addOrUpdateWorkout = async (workout) => {
     try {
-    if (editingIndex !== null) {
+      const headers = getAuthHeader();
+      if (editingIndex !== null) {
+        console.log('Updating workout:', workout);
         const response = await fetch(`http://localhost:5000/api/workouts/${workouts[editingIndex]._id}`, {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
+          headers: headers,
           body: JSON.stringify(workout)
         });
         const updatedWorkout = await response.json();
-      const updatedWorkouts = [...workouts];
+        const updatedWorkouts = [...workouts];
         updatedWorkouts[editingIndex] = updatedWorkout;
-      setWorkouts(updatedWorkouts);
-      setEditingIndex(null);
-    } else {
+        setWorkouts(updatedWorkouts);
+        setEditingIndex(null);
+      } else {
         const response = await fetch('http://localhost:5000/api/workouts', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: headers,
           body: JSON.stringify(workout)
         });
         const newWorkout = await response.json();
+        console.log('Created workout response:', newWorkout);
         setWorkouts([...workouts, newWorkout]);
       }
     } catch (error) {

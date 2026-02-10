@@ -34,7 +34,7 @@ const ForgotPassword = () => {
   return (
     <div className="forget-password-container">
       <div className="hero-header">
-        <h1>Fitness Hub</h1>
+        <h1>Flex Fuel</h1>
       </div>
       <div className="forget-password-card">
         <h2 className="forget-password-title">Forgot Password</h2>

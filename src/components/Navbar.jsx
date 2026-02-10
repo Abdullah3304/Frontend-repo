@@ -1,31 +1,58 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Stylings/Navbar.css';
-import Menu from './Menu'; // Import the Menu component
+import Menu from './Menu';
 import { FaChevronDown } from 'react-icons/fa';
-
+import axios from 'axios';
 const Navbar = () => {
-   // Track whether the mobile menu is open
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasMembership, setHasMembership] = useState(false);
+  const navigate = useNavigate();
+  <Menu setIsMenuOpen={setIsMenuOpen} />
+  // Fetch membership status
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    axios.get('http://localhost:5000/api/me', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((res) => {
+        if (res.data?.membership?.isActive) {
+          setHasMembership(true);
+        }
+      })
+      .catch((err) => {
+        console.error('Error checking membership status:', err);
+      });
+  }, []);
 
   // Get the token and role from localStorage
   const token = localStorage.getItem('token');
   const isAdmin = token ? JSON.parse(atob(token.split('.')[1])).role === 'admin' : false;
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('cart');
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
-      <Link to="/home" className="logo">Fitness Hub</Link>
-        {/* Hamburger Menu Icon (Mobile View) */}
-        {/*<div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? <FaTimes /> : <FaBars />}</div> {/* Show X or Hamburger based on menu state */}
+      <Link to="/home" className="logo">Flex Fuel</Link>
+
       {/* Navbar Links Container */}
       <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
         <li><Link to="/home">Home</Link></li>
         <div className="dropdown">
           <span>Training Hub <FaChevronDown /></span>  {/* Add icon here */}
           <div className="dropdown-content">
-          <Link to="/workout">Workout Log</Link>
+            <Link to="/workout">Workout Log</Link>
             <Link to="/trainer">Trainer</Link>
-            <Link to="/register-trainer">Register</Link>
+            <Link to="/register-trainer">Create Trainer Listing</Link>
             <Link to="/video-tutorials">Exercise Videos</Link>
           </div>
         </div>
@@ -41,15 +68,24 @@ const Navbar = () => {
         <div className="dropdown">
           <span>Shop <FaChevronDown /></span> {/* Add icon here */}
           <div className="dropdown-content">
-            <Link to="/products">Products</Link>
-            <Link to="/cart">Cart</Link>
-            <li><Link to="/admin">Enlist</Link></li>
+            <Link to="/product">Products</Link>
+            <Link to="/fitness-cart">Cart</Link>
+            <li><Link to="/enlist-fitness-product">Enlist</Link></li>
           </div>
         </div>
+        <li className="dropdown">
+          <span>Others <FaChevronDown /></span>
+          <div className="dropdown-content">
+            <Link to="/ChatApp">ChatBot</Link>
+            <Link to="/my-orders">My Orders</Link>
+            {hasMembership && <Link to="/seller-orders">Product Sales</Link>}
+           
+          </div>
+        </li>
         <Link to="/join-us" className="join-us-btn">Join Us</Link>
-        
-        {/* Add the Menu component for the dropdown in the top-right corner */}
-        <Menu setIsLoggedIn={() => { }} />  {/* Pass setIsLoggedIn as a prop to Menu */}
+
+
+         {/* Pass setIsLoggedIn as a prop to Menu */}
       </ul>
     </nav>
   );

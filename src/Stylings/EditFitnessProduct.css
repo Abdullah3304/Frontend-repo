@@ -1,0 +1,63 @@
+/* EditFitnessProduct.css */
+
+.edit-product-page {
+    max-width: 600px;
+    margin: 90px auto 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-product-page h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.edit-product-page form {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-product-page input[type="text"],
+.edit-product-page input[type="number"],
+.edit-product-page input[type="file"],
+.edit-product-page textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.edit-product-page textarea {
+    min-height: 100px;
+}
+
+.edit-product-page img {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.edit-product-page button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-product-page button[type="submit"]:hover {
+    background-color: #218838;
+}

@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 const HireTrainer = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [gmailError, setGmailError] = useState('');
   const [trainer, setTrainer] = useState(null);
   const [gmail, setGmail] = useState('');
   const [paymentOption, setPaymentOption] = useState('');
@@ -22,8 +21,13 @@ const HireTrainer = () => {
 
   useEffect(() => {
     const fetchTrainer = async () => {
+      const token = localStorage.getItem('token');
       try {
-        const res = await axios.get(`http://localhost:5000/api/trainers/${id}`);
+        const res = await axios.get(`http://localhost:5000/api/trainers/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
         setTrainer(res.data);
       } catch (err) {
         toast.error('Trainer not found');
@@ -56,13 +60,21 @@ const HireTrainer = () => {
       }
     }
 
+    const token = localStorage.getItem('token');
+
     try {
       await axios.post('http://localhost:5000/api/trainers/hire', {
         trainerId: trainer._id,
         gmail,
         paymentOption,
         cardDetails: paymentOption === 'card' ? cardDetails : null,
-      });
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // ✅ Send token in header
+        },
+      }
+    );
 
       toast.success('Booking confirmed! Confirmaation send to Gmail');
 
@@ -86,7 +98,7 @@ const HireTrainer = () => {
       <h2>Hire {trainer.name}</h2>
       <div className="trainer-details">
         <p><strong>Specialization:</strong> {trainer.specialization.join(', ')}</p>
-        <p><strong>Price:</strong> Rs. {trainer.price}</p>
+        <p><strong>Fees:</strong> $ {trainer.price}</p>
         <p><strong>Availability:</strong> {trainer.availability}</p>
         <p><strong>Description:</strong> {trainer.description}</p>
         <p><strong>Contact:</strong> {trainer.gmail}</p>
