@@ -61,10 +61,10 @@ const LoginSignup = ({ setIsLoggedIn }) => {
     const endpoint = isSignup ? 'register' : 'login';
 
     try {
-
+      const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
       const response = await axios.post(
 
-        `http://localhost:5000/api/auth/${endpoint}`,
+        `${API_BASE_URL}/auth/${endpoint}`,
 
         { email, password, recoveryEmail },
 
