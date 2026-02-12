@@ -10,13 +10,23 @@ const ResetPassword = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('')
 
+  const getApiUrl = () => {
+    if (process.env.NODE_ENV === 'production') {
+      // Use the production backend URL (replace with your actual backend URL on Vercel)
+      return process.env.REACT_APP_BACKEND_URL || 'https://your-backend-url.vercel.app/api/auth/reset-password';
+    } else {
+      // Use localhost for local development
+      return 'http://localhost:5000/api/auth/reset-password';
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/reset-password', { confirm, newPassword, token });
+      const response = await axios.post(getApiUrl(), { confirm, newPassword, token });
       setMessage(response.data.message);
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong');
