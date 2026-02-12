@@ -8,7 +8,7 @@ import '../Stylings/WorkoutPage.css';
 const getApiUrl = () => {
   if (process.env.NODE_ENV === 'production') {
     // Vercel deployed backend URL in production
-    return 'https://your-backend-url.vercel.app/api/workouts'; // replace with your actual deployed backend URL
+    return 'https://backend-repo-green.vercel.app//api/workouts'; // replace with your actual deployed backend URL
   } else {
     // localhost for local development
     return 'http://localhost:5000/api/workouts';
