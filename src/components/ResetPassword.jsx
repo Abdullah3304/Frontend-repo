@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const getApiUrl = () => {
     if (process.env.NODE_ENV === 'production') {
       // Use the production backend URL (replace with your actual backend URL on Vercel)
-      return process.env.REACT_APP_BACKEND_URL || 'https://backend-repo-green.vercel.app/api/auth/reset-password';
+      return process.env.REACT_APP_RESET_PASSWORD_URL || 'https://backend-repo-green.vercel.app/api/auth/reset-password';
     } else {
       // Use localhost for local development
       return 'http://localhost:5000/api/auth/reset-password';
