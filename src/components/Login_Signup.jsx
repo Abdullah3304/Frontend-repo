@@ -60,21 +60,11 @@ const LoginSignup = ({ setIsLoggedIn }) => {
 
     const endpoint = isSignup ? 'register' : 'login';
 
+    const payload = isSignup ? { email, password, recoveryEmail } : { email, password };
+
     try {
       const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
-      const response = await axios.post(
-
-        `${API_BASE_URL}/auth/${endpoint}`,
-
-        { email, password, recoveryEmail },
-
-        {
-
-          headers: { 'Content-Type': 'application/json' },
-
-        }
-
-      );
+      const response = await axios.post(`${API_BASE_URL}/auth/${endpoint}`, payload, { headers: { 'Content-Type': 'application/json' } });
 
       if (isSignup) {
 
@@ -93,33 +83,16 @@ const LoginSignup = ({ setIsLoggedIn }) => {
         if (token) {
 
           localStorage.setItem('token', token);
-
-          console.log('Token stored:', token);
-
-
-
-          // Decode the token to get user info
-
-          const decodedToken = JSON.parse(atob(token.split('.')[1]));
-
-          localStorage.setItem("userInfo", JSON.stringify(decodedToken));
-
-
-
-          console.log('Decoded token:', decodedToken);
-
-
-
+          try {
+            const decodedToken = JSON.parse(atob(token.split('.')[1]));
+            localStorage.setItem('userInfo', JSON.stringify(decodedToken));
+            console.log('Decoded token:', decodedToken);
+          } catch (e) {
+            console.warn('Failed to decode token', e);
+          }
           setIsLoggedIn(true);
-
-
-
           const userRole = response.data.role;
-
           navigate(userRole === 'admin' ? '/' : '/home');
-
-
-
           setMessage(isSignup ? 'Account created successfully!' : 'Logged in successfully!');
 
         }
@@ -129,15 +102,12 @@ const LoginSignup = ({ setIsLoggedIn }) => {
     } catch (error) {
 
       console.error('Auth error:', error);
-
+      console.error('status:', error.response?.status);
+      console.error('data:', error.response?.data);
       if (error.response?.data?.error === 'User already exists') {
-
         setMessage('This email is already registered. Please log in instead.');
-
       } else {
-
         setMessage(error.response?.data?.message || 'Email or password is incorrect');
-
       }
 
     } finally {
