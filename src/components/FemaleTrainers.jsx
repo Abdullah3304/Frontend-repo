@@ -14,9 +14,18 @@ const FemaleTrainers = () => {
     const [priceRange, setPriceRange] = useState(10000);
     const cardsPerPage = 6;
     const token = localStorage.getItem('token');
+    const getApiUrl = () => {
+        if (process.env.NODE_ENV === 'production') {
+            // Use the Vercel production backend URL
+            return process.env.REACT_APP_BACKEND_URL || 'https://backend-repo-green.vercel.app/api/trainers/female'; // Replace with the actual production backend URL
+        } else {
+            // Use localhost for local development
+            return 'http://localhost:5000/api/trainers/female';
+        }
+    };
     useEffect(() => {
         if (token) {
-            axios.get('http://localhost:5000/api/trainers/female', {
+            axios.get(getapiUrl(), {
                 params: {
                     token: token
                 }
@@ -24,7 +33,7 @@ const FemaleTrainers = () => {
                 .then((res) => setTrainers(res.data))
                 .catch((err) => console.error(err));
         }
-    }, []);
+    }, [token]);
 
     const handleSpecChange = (e) => {
         const value = e.target.value;
