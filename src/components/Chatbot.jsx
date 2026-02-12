@@ -5,6 +5,9 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [sessionId, setSessionId] = useState(
+    () => localStorage.getItem("chatSessionId") || null
+  );
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -16,16 +19,30 @@ const Chatbot = () => {
 
     try {
       const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
+      const token = localStorage.getItem('token') || localStorage.getItem('authToken');
+
+      const headers = { "Content-Type": "application/json" };
+      if (token) headers.Authorization = `Bearer ${token}`;
+
       const res = await fetch(`${API_BASE_URL}/chatbot`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+        headers,
+        body: JSON.stringify({ message: input, sessionId }),
       });
 
       const data = await res.json();
       const botMessage = { sender: "bot", text: data.reply };
 
       setMessages((prev) => [...prev, botMessage]);
+
+      if (data.sessionId) {
+        setSessionId(data.sessionId);
+        try {
+          localStorage.setItem('chatSessionId', data.sessionId);
+        } catch (e) {
+          // ignore storage errors
+        }
+      }
     } catch (err) {
       setMessages((prev) => [
         ...prev,
