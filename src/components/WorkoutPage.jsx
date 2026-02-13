@@ -54,7 +54,7 @@ const App = () => {
       // Updating an existing workout
       if (editingIndex !== null) {
         console.log('Updating workout:', workout);
-        response = await fetch(`${getApiUrl()}/${workouts[editingIndex]._id}`, {
+        response = await fetch(`${API_BASE_URL}/workouts/${workouts[editingIndex]._id}`, {
           method: 'PUT',
           headers: headers,
           body: JSON.stringify(workout),
@@ -71,7 +71,7 @@ const App = () => {
         setEditingIndex(null);
       } else {
         // Creating a new workout
-        response = await fetch(getApiUrl(), {
+        response = await fetch(`${API_BASE_URL}/workouts`, {
           method: 'POST',
           headers: headers,
           body: JSON.stringify(workout),
