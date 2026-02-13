@@ -75,10 +75,10 @@ const Navbar = () => {
             <li><Link to="/enlist-fitness-product">Enlist</Link></li>
           </div>
         </div>
+        <li><Link to="/ChatApp">ChatBot</Link></li>
         <li className="dropdown">
           <span>Others <FaChevronDown /></span>
           <div className="dropdown-content">
-            <Link to="/ChatApp">ChatBot</Link>
             <Link to="/my-orders">My Orders</Link>
             {hasMembership && <Link to="/seller-orders">Product Sales</Link>}
            
