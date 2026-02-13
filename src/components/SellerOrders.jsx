@@ -17,7 +17,7 @@ const SellerOrders = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`${API_BASE_URL}/orders/seller-orders', {
+        const response = await axios.get(`${API_BASE_URL}/orders/seller-orders`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);

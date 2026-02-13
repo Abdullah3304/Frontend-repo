@@ -17,7 +17,7 @@ const ResetPassword = () => {
       return process.env.REACT_APP_RESET_PASSWORD_URL || 'https://backend-repo-green.vercel.app/api/auth/reset-password';
     } else {
       // Use localhost for local development
-      return `${API_BASE_URL}/auth/reset-password';
+      return `${API_BASE_URL}/auth/reset-password`;
     }
   };
 

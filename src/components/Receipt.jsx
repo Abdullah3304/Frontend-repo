@@ -7,7 +7,7 @@ const Receipt = ({ customerEmail, customerName, orderDetails }) => {
   useEffect(() => {
     const sendReceiptEmail = async () => {
       try {
-        await axios.post(`${API_BASE_URL}/send-receipt', {
+        await axios.post(`${API_BASE_URL}/send-receipt`, {
           customerEmail,
           customerName,
           orderDetails,

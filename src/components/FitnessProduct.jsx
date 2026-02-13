@@ -14,7 +14,7 @@ const FitnessProduct = () => {
     const cardsPerPage = 6;
 
     useEffect(() => {
-        axios.get(`${API_BASE_URL}/fitness-products') 
+        axios.get(`${API_BASE_URL}/fitness-products`) 
             .then((res) => setProducts(res.data))
             .catch((err) => console.error(err));
     }, []);

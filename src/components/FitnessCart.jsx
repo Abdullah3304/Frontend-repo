@@ -79,7 +79,7 @@ const FitnessCart = () => {
                 cardDetails: paymentMethod === 'card' ? cardInfo : null
             };
             const token = localStorage.getItem('token');
-            const res = await axios.post(`${API_BASE_URL}/orders', orderData, {
+            const res = await axios.post(`${API_BASE_URL}/orders`, orderData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -90,7 +90,7 @@ const FitnessCart = () => {
 
         // ✅ 2. Send confirmation email
         await axios.post(
-            `${API_BASE_URL}/send-receipt',
+            `${API_BASE_URL}/send-receipt`,
             {
                 email: customerEmail,
                 orderDetails

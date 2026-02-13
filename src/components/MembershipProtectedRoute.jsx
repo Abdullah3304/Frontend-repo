@@ -15,7 +15,7 @@ const MembershipProtectedRoute = ({ children }) => {
       }
 
       try {
-        const response = await fetch(`${API_BASE_URL}/check-membership', {
+        const response = await fetch(`${API_BASE_URL}/check-membership`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

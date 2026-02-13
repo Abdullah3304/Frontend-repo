@@ -24,7 +24,7 @@ const Checkout = ({ cartItems }) => {
       const token = localStorage.getItem('token');
 
       const response = await axios.post(
-        `${API_BASE_URL}/send-receipt',
+        `${API_BASE_URL}/send-receipt`,
         { orderDetails, email },
         { headers: { Authorization: `Bearer ${token}` } }
       );

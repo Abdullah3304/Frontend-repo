@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../Stylings/Chatbot.css";
-import { API_BASE_URL, BASE_URL } from '../config/api';
+import { API_BASE_URL } from '../config/api';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -19,7 +19,6 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || ${API_BASE_URL}`;
       const token = localStorage.getItem('token') || localStorage.getItem('authToken');
 
       const headers = { "Content-Type": "application/json" };

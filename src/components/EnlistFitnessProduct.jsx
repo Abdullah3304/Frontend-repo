@@ -3,7 +3,7 @@ import axios from 'axios';
 import Enlist from '../assets/Enlist.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { API_BASE_URL, BASE_URL } from '../config/api';
+import { API_BASE_URL } from '../config/api';
 
 import '../Stylings/RegisterTrainer.css'; // Reuse same styling
 
@@ -38,7 +38,7 @@ const EnlistFitnessProduct = () => {
         }
 
         try {
-            await axios.post(`${API_BASE_URL}/fitness-products/register', formData, {
+            await axios.post(`${API_BASE_URL}/fitness-products/register`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'

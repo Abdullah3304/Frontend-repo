@@ -9,7 +9,7 @@ function TestBackend() {
     const fetchData = async () => {
       try {
         // Replace the URL below with your backend API endpoint
-        const response = await axios.get(`${API_BASE_URL}/test');
+        const response = await axios.get(`${API_BASE_URL}/test`);
         setMessage(response.data.message);
       } catch (error) {
         console.error('Error connecting to the backend:', error);

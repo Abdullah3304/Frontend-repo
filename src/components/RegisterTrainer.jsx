@@ -71,7 +71,7 @@ const RegisterTrainer = () => {
         }
 
         try {
-            await axios.post(`${API_BASE_URL}/trainers/register', formData,
+            await axios.post(`${API_BASE_URL}/trainers/register`, formData,
                 {
                     params: {
                         token: token

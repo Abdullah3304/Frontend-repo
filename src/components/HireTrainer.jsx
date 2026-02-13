@@ -64,7 +64,7 @@ const HireTrainer = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post(`${API_BASE_URL}/trainers/hire', {
+      await axios.post(`${API_BASE_URL}/trainers/hire`, {
         trainerId: trainer._id,
         gmail,
         paymentOption,
