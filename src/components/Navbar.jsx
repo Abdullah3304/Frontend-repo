@@ -4,6 +4,8 @@ import '../Stylings/Navbar.css';
 import Menu from './Menu';
 import { FaChevronDown } from 'react-icons/fa';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
+
 const Navbar = () => {
   
 
@@ -17,7 +19,7 @@ const Navbar = () => {
     const token = localStorage.getItem('token');
     if (!token) return;
 
-    axios.get('http://localhost:5000/api/me', {
+    axios.get(`${API_BASE_URL}/me`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => {

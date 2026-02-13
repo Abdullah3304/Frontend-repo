@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ThreadCard from './ThreadCard';
 import NewThreadForm from './NewThreadForm';
 import '../Stylings/Community.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || ${API_BASE_URL}`;
 
 const CommunityPage = () => {
   const [threads, setThreads] = useState([]);

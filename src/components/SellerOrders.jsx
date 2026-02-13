@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Stylings/SellerOrders.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const SellerOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -16,7 +17,7 @@ const SellerOrders = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/orders/seller-orders', {
+        const response = await axios.get(`${API_BASE_URL}/orders/seller-orders', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);
@@ -55,7 +56,7 @@ const SellerOrders = () => {
             {sellerProducts.map((product) => (
               <div className="product" key={product._id}>
                 <img
-                  src={`http://localhost:5000/${product.image.replace(/\\/g, '/')}`}
+                  src={`${BASE_URL}/${product.image.replace(/\\/g, '/')}`}
                   alt={product.name}
                 />
                 <div>

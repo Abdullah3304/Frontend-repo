@@ -3,17 +3,7 @@ import WorkoutForm from "./WorkoutForm";
 import WorkoutList from "./WorkoutList";
 import ProgressTracker from "./ProgressTracker";
 import '../Stylings/WorkoutPage.css';
-
-// Backend URL, updated dynamically based on environment
-const getApiUrl = () => {
-  if (process.env.NODE_ENV === 'production') {
-    // Vercel deployed backend URL in production
-    return 'https://backend-repo-green.vercel.app/api/workouts'; // replace with your actual deployed backend URL
-  } else {
-    // localhost for local development
-    return 'http://localhost:5000/api/workouts';
-  }
-};
+import { API_BASE_URL } from '../config/api';
 
 const App = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -25,7 +15,7 @@ const App = () => {
       const headers = getAuthHeader();
       console.log('Request headers:', headers);
       
-      const response = await fetch(getApiUrl(), {
+      const response = await fetch(`${API_BASE_URL}/workouts`, {
         headers: headers
       });
 

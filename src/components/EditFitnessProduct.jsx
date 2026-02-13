@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Stylings/EditFitnessProduct.css'
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const EditFitnessProduct = () => {
     const { id } = useParams();
@@ -20,7 +21,7 @@ const EditFitnessProduct = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/fitness-products/${id}`);
+                const res = await axios.get(`${API_BASE_URL}/fitness-products/${id}`);
                 const data = res.data;
                 setProduct(prev => ({
                     ...prev,
@@ -59,7 +60,7 @@ const EditFitnessProduct = () => {
         }
 
         try {
-            await axios.put(`http://localhost:5000/api/fitness-products/update/${id}`, formData, {
+            await axios.put(`${API_BASE_URL}/fitness-products/update/${id}`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
@@ -115,7 +116,7 @@ const EditFitnessProduct = () => {
                 />
                 {product.image && (
                     <img
-                        src={`http://localhost:5000/${product.image}`}
+                        src={`${BASE_URL}/${product.image}`}
                         alt="Current"
                         style={{ maxWidth: '200px', marginBottom: '10px' }}
                     />

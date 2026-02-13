@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Stylings/FitnessProductCard.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const FitnessProductCard = ({ product, onDelete }) => {
     const [quantity, setQuantity] = useState(1);
@@ -46,7 +47,7 @@ const FitnessProductCard = ({ product, onDelete }) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
             try {
                 const token = localStorage.getItem('token');
-                const res = await fetch(`http://localhost:5000/api/fitness-products/delete/${product._id}`, {
+                const res = await fetch(`${API_BASE_URL}/fitness-products/delete/${product._id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ const FitnessProductCard = ({ product, onDelete }) => {
     return (
         <div className="product-card">
             <img
-                src={`http://localhost:5000/${product.image}`}
+                src={`${BASE_URL}/${product.image}`}
                 alt={product.name}
                 className="product-image"
             />

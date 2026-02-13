@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const Receipt = ({ customerEmail, customerName, orderDetails }) => {
 
   useEffect(() => {
     const sendReceiptEmail = async () => {
       try {
-        await axios.post('http://localhost:5000/api/send-receipt', {
+        await axios.post(`${API_BASE_URL}/send-receipt', {
           customerEmail,
           customerName,
           orderDetails,

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Stylings/AdminPanel.css';
+import { API_BASE_URL } from '../config/api';
 
 const AdminPanel = () => {
     const [trainers, setTrainers] = useState([]);
@@ -14,7 +15,7 @@ const AdminPanel = () => {
 
     const fetchTrainers = async () => {
         try {
-            const { data } = await axios.get('http://localhost:5000/api/trainers');
+            const { data } = await axios.get(`${API_BASE_URL}/trainers`);
             setTrainers(data);
         } catch (err) {
             console.error('Failed to fetch trainers:', err.message);
@@ -23,7 +24,7 @@ const AdminPanel = () => {
 
     const fetchProducts = async () => {
         try {
-            const { data } = await axios.get('http://localhost:5000/api/fitness-products');
+            const { data } = await axios.get(`${API_BASE_URL}/fitness-products`);
             setProducts(data);
         } catch (err) {
             console.error('Failed to fetch products:', err.message);
@@ -35,7 +36,7 @@ const AdminPanel = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/trainers/${id}`, {
+            await axios.delete(`${API_BASE_URL}/trainers/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setTrainers(prev => prev.filter(t => t._id !== id));
@@ -50,7 +51,7 @@ const AdminPanel = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/fitness-products/delete/${id}`, {
+            await axios.delete(`${API_BASE_URL}/fitness-products/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setProducts(prev => prev.filter(p => p._id !== id));

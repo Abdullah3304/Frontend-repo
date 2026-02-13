@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../Stylings/TrainerCard.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const TrainerCard = ({ trainer }) => {
     const [showSlots, setShowSlots] = useState(false);
@@ -22,7 +23,7 @@ const TrainerCard = ({ trainer }) => {
     const toggleSlots = () => setShowSlots(!showSlots);
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/api/trainers/delete-trainer/${trainer._id}`, {
+        axios.delete(`${API_BASE_URL}/trainers/delete-trainer/${trainer._id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -64,7 +65,7 @@ const TrainerCard = ({ trainer }) => {
     const handleSubmitEdit = (e) => {
         e.preventDefault();
         
-        axios.put(`http://localhost:5000/api/trainers/update-trainer/${trainer._id}`, editFormData, {
+        axios.put(`${API_BASE_URL}/trainers/update-trainer/${trainer._id}`, editFormData, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -180,7 +181,7 @@ const TrainerCard = ({ trainer }) => {
     return (
         <div className="trainer-card">
             <img
-                src={`http://localhost:5000/${trainer.image}`}
+                src={`${BASE_URL}/${trainer.image}`}
                 alt={trainer.name}
                 className="trainer-image"
             />

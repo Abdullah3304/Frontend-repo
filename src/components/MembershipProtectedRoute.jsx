@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const MembershipProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token'); // 🔥 read token directly
@@ -14,7 +15,7 @@ const MembershipProtectedRoute = ({ children }) => {
       }
 
       try {
-        const response = await fetch('http://localhost:5000/api/check-membership', {
+        const response = await fetch(`${API_BASE_URL}/check-membership', {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import TrainerCard from './TrainerCard';
 import '../Stylings/MaleTrainers.css';
 import maleHero from '../assets/male.png';
+import { API_BASE_URL } from '../config/api';
 
 const MaleTrainers = () => {
     const [trainers, setTrainers] = useState([]);
@@ -16,7 +17,7 @@ const MaleTrainers = () => {
 
     useEffect(() => {
         if (token) {
-            axios.get('http://localhost:5000/api/trainers/male', {
+            axios.get(`${API_BASE_URL}/trainers/male`, {
                 params: {
                     token: token
                 }

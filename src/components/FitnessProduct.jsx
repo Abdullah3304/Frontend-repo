@@ -3,6 +3,7 @@ import axios from 'axios';
 import FitnessProductCard from './FitnessProductCard';
 import '../Stylings/MaleTrainers.css'; // Reuse existing styling for layout
 import productHero from '../assets/shop.png'; 
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const FitnessProduct = () => {
     const [products, setProducts] = useState([]);
@@ -13,7 +14,7 @@ const FitnessProduct = () => {
     const cardsPerPage = 6;
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/fitness-products') 
+        axios.get(`${API_BASE_URL}/fitness-products') 
             .then((res) => setProducts(res.data))
             .catch((err) => console.error(err));
     }, []);

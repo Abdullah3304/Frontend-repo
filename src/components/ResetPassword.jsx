@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../Stylings/ResetPassword.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -16,7 +17,7 @@ const ResetPassword = () => {
       return process.env.REACT_APP_RESET_PASSWORD_URL || 'https://backend-repo-green.vercel.app/api/auth/reset-password';
     } else {
       // Use localhost for local development
-      return 'http://localhost:5000/api/auth/reset-password';
+      return `${API_BASE_URL}/auth/reset-password';
     }
   };
 

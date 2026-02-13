@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import axios from 'axios';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -63,7 +64,7 @@ const LoginSignup = ({ setIsLoggedIn }) => {
     const payload = isSignup ? { email, password, recoveryEmail } : { email, password };
 
     try {
-      const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api';
+      const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || ${API_BASE_URL}`;
       const response = await axios.post(`${API_BASE_URL}/auth/${endpoint}`, payload, { headers: { 'Content-Type': 'application/json' } });
 
       if (isSignup) {

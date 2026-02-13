@@ -3,6 +3,7 @@ import axios from 'axios';
 import heroBg from '../assets/hero-bg.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 import '../Stylings/RegisterTrainer.css';
 
@@ -70,7 +71,7 @@ const RegisterTrainer = () => {
         }
 
         try {
-            await axios.post('http://localhost:5000/api/trainers/register', formData,
+            await axios.post(`${API_BASE_URL}/trainers/register', formData,
                 {
                     params: {
                         token: token

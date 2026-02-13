@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Stylings/FitnessCart.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const FitnessCart = () => {
     const [cart, setCart] = useState([]);
@@ -78,7 +79,7 @@ const FitnessCart = () => {
                 cardDetails: paymentMethod === 'card' ? cardInfo : null
             };
             const token = localStorage.getItem('token');
-            const res = await axios.post('http://localhost:5000/api/orders', orderData, {
+            const res = await axios.post(`${API_BASE_URL}/orders', orderData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -89,7 +90,7 @@ const FitnessCart = () => {
 
         // ✅ 2. Send confirmation email
         await axios.post(
-            'http://localhost:5000/api/send-receipt',
+            `${API_BASE_URL}/send-receipt',
             {
                 email: customerEmail,
                 orderDetails
@@ -136,7 +137,7 @@ const FitnessCart = () => {
                                     className="cart-item"
                                 >
                                     <img
-                                        src={`http://localhost:5000/${item.image}`}
+                                        src={`${BASE_URL}/${item.image}`}
                                         alt={item.name}
 
                                         className="cart-item-image"

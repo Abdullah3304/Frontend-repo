@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../Stylings/JoinUs.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { API_BASE_URL } from '../config/api';
 
 const JoinUs = () => {
   const [email, setEmail] = useState('');
@@ -52,7 +53,7 @@ const JoinUs = () => {
       console.error('Error decoding token', error);
     }
 
-    axios.get('http://localhost:5000/api/me', {
+    axios.get(`${API_BASE_URL}/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(res => {
@@ -83,7 +84,7 @@ const JoinUs = () => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/buy-membership',
+        `${API_BASE_URL}/buy-membership`,
         { password },
         { headers: { Authorization: `Bearer ${token}` } }
       );

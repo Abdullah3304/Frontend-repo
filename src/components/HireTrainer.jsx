@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Stylings/HireTrainer.css';
 import { toast } from 'react-toastify';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const HireTrainer = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const HireTrainer = () => {
     const fetchTrainer = async () => {
       const token = localStorage.getItem('token');
       try {
-        const res = await axios.get(`http://localhost:5000/api/trainers/${id}`, {
+        const res = await axios.get(`${API_BASE_URL}/trainers/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -63,7 +64,7 @@ const HireTrainer = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post('http://localhost:5000/api/trainers/hire', {
+      await axios.post(`${API_BASE_URL}/trainers/hire', {
         trainerId: trainer._id,
         gmail,
         paymentOption,

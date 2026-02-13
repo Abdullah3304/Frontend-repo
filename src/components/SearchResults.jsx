@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../Stylings/SearchResults.css'; // Adjust the path as necessary
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const SearchResults = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ const SearchResults = () => {
     const fetchSearchResults = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/search?q=${query}`
+          `${API_BASE_URL}/products/search?q=${query}`
         );
         setProducts(response.data);
         setLoading(false);

@@ -3,6 +3,7 @@ import axios from 'axios';
 import TrainerCard from './TrainerCard';
 import '../Stylings/FemaleTrainers.css';  // Ensure the import is correct
 import maleHero from '../assets/male.png';
+import { API_BASE_URL } from '../config/api';
 
 
 const FemaleTrainers = () => {
@@ -14,19 +15,10 @@ const FemaleTrainers = () => {
     const [priceRange, setPriceRange] = useState(10000);
     const cardsPerPage = 6;
     const token = localStorage.getItem('token');
-    const getApiUrl = () => {
-        if (process.env.NODE_ENV === 'production') {
-            // Use the Vercel production backend URL
-            return process.env.REACT_APP_BACKEND_URL || 'https://backend-repo-green.vercel.app/api/trainers/female'; // Replace with the actual production backend URL
-        } else {
-            // Use localhost for local development
-            return 'http://localhost:5000/api/trainers/female';
-        }
-    };
     
     useEffect(() => {
         if (token) {
-            axios.get('http://localhost:5000/api/trainers/female', {
+            axios.get(`${API_BASE_URL}/trainers/female`, {
                 params: {
                     token: token
                 }

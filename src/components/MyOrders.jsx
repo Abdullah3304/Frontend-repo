@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../Stylings/Myorder.css';
+import { API_BASE_URL, BASE_URL } from '../config/api';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -9,7 +10,7 @@ const MyOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/orders/my-orders', {
+        const res = await axios.get(`${API_BASE_URL}/orders/my-orders`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(res.data);
@@ -37,7 +38,7 @@ const MyOrders = () => {
             <div className="products">
               {order.products.map((p, i) => (
                 <div key={i} className="product">
-                  <img src={`http://localhost:5000/${p.image}`} alt={p.name} />
+                  <img src={`${BASE_URL}/${p.image}`} alt={p.name} />
                   <div>
                     <p><strong>{p.name}</strong></p>
                     <p>Price: Rs {p.price}</p>
